@@ -22,3 +22,7 @@ def insert_npc():
 @app.route("/getNpcs", methods=["GET"])
 def get_npcs():
     return mc.get_npcs()
+
+@app.route("/getAchievements", methods=["GET"])
+def get_achievements():
+    return mc.get_achievements()

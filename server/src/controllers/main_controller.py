@@ -34,3 +34,10 @@ def delete_npc(name_npc):
 def test_get():
     return STARDEW.scan()["Items"]
 
+def get_achievements():
+    
+    achievements = STARDEW.query(
+        KeyConditionExpression=Key("type").eq("achievement")
+    )
+
+    return achievements["Items"]

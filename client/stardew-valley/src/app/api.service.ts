@@ -10,6 +10,11 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getNpcs(): Observable<any[]>{
-    return this.http.get<any[]>('http://localhost:5000/get');
-    }
+    return this.http.get<any[]>('http://localhost:5000/getNpcs');
+  }
+
+  insertNpc(npcData: any): Observable<any[]>{
+    return this.http.post<any[]>('http://localhost:5000/insertNpc', npcData)
+  }
+
 }
