@@ -10,6 +10,8 @@ import { EditNpcComponent } from './edit-npc/edit-npc.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { NewAchievementComponent } from './new-achievement/new-achievement.component';
 import { EditAchievementComponent } from './edit-achievement/edit-achievement.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { EditAchievementComponent } from './edit-achievement/edit-achievement.co
     EditNpcComponent,
     AchievementsComponent,
     NewAchievementComponent,
-    EditAchievementComponent
+    EditAchievementComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
