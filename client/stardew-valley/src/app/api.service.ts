@@ -13,8 +13,8 @@ export class ApiService {
     return this.http.get<any[]>('http://localhost:5000/getNpcs');
   }
 
-  insertNpc(npcData: any): Observable<any[]>{
-    return this.http.post<any[]>('http://localhost:5000/insertNpc', npcData)
+  insertNpc(data: any): Observable<any[]>{
+    return this.http.post<any[]>('http://localhost:5000/insert', data)
   }
 
 }
