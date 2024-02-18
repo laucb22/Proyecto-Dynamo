@@ -16,6 +16,7 @@ import { EditAchievementComponent } from './edit-achievement/edit-achievement.co
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddElementComponent } from './add-element/add-element.component';
+import { MyDatablePipe } from './custom.datablepipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddElementComponent } from './add-element/add-element.component';
     EditAchievementComponent,
     NavbarComponent,
     FooterComponent,
-    AddElementComponent
+    AddElementComponent,
+    MyDatablePipe
   ],
   imports: [
     BrowserModule,
