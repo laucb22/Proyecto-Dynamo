@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-npcs',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./npcs.component.css']
 })
 export class NpcsComponent {
+  constructor(private api: ApiService){}
 
+  npcs: any[] = []
+
+  ngOnInit() {
+    this.api.getNpcs().subscribe((data: any[]) => {
+      this.npcs = data
+    })
+  }
+
+  refresh(){
+    window.location.reload();
+  }
 }
