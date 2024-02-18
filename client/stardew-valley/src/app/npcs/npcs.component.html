@@ -16,31 +16,35 @@
                         <th scope="col">Manners</th>
                         <th scope="col">Social Anxiety</th>
                         <th scope="col">Optimism</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Datable</th>
+                        <th scope="col">Love interest</th>
+                        <th scope="col">Home region</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Relationships</th>
+                        <th scope="col">Start Location</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let vehicle of vehicles">
+                  <tr *ngFor="let npc of npcs">
                         <th>
-                            <img height="100" width="200" [src] = "vehicle.img_url" alt="">
+                            <img height="100" width="200" [src] = "npc.img" alt="">
                         </th>
-                        <th>{{vehicle.plate_number}}</th>
-                        <th>{{vehicle.model.brand.name}}</th>
-                        <th>{{vehicle.model.name}}</th>
-                        <td>{{vehicle.vehicle_type.vehicle_type}}</td>
-                        <td>{{vehicle.color}}</td>
-                        <td>{{vehicle.price | number: '1.2-2':'es' }} €</td>
-                        <td>{{vehicle.status.status}}</td>
-                        <td>
-                            <button class="btn btn-success" [routerLink]="['/vehicle-edit', vehicle.plate_number]">Edit</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger" (click)="onDelete(vehicle.plate_number)">Delete</button>
-                        </td>
+                        <td>{{npc.name}}</td>
+                        <td>{{npc.age}}</td>
+                        <td>{{npc.manners}}</td>
+                        <td></td>
+                        <td>{{npc.optimism}}</td>
+                        <td>{{npc.gender}}</td>
+                        <td>{{npc.datable}}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{npc.birthday}}</td>
+                        <td>{{npc.relationships}}</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
