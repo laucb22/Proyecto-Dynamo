@@ -1,53 +1,19 @@
 <div class="container">
     <div class="row">
-        <div class="col text-center">
-            <h1>NPCs</h1>
-        </div>
+      <div class="col text-center">
+        <img src="../../assets/villagers.png">
+      </div>
     </div>
-    <hr>
     <div class="row">
-        <div class="col">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Manners</th>
-                        <th scope="col">Social Anxiety</th>
-                        <th scope="col">Optimism</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Datable</th>
-                        <th scope="col">Love interest</th>
-                        <th scope="col">Home region</th>
-                        <th scope="col">Birthday</th>
-                        <th scope="col">Relationships</th>
-                        <th scope="col">Start Location</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let npc of npcs">
-                        <th>
-                            <img height="100" [src] = "npc.img" alt="">
-                        </th>
-                        <td>{{npc.name}}</td>
-                        <td>{{npc.age}}</td>
-                        <td>{{npc.manners}}</td>
-                        <td>{{npc['social anxiety']}}</td>
-                        <td>{{npc.optimism}}</td>
-                        <td>{{npc.gender}}</td>
-                        <td>{{npc.datable}}</td>
-                        <td>{{npc['love interest']}}</td>
-                        <td>{{npc['home region']}}</td>
-                        <td>{{npc.birthday}}</td>
-                        <td>{{npc.relationships}}</td>
-                        <td>{{npc['start location']}}</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+      <div class="col-4 col-md-3 col-lg-2" *ngFor="let npc of npcs">
+        <div class="card my-2 p-3">
+          <img class="card-img-top" [src]="npc.img" alt="{{npc.name}} Image">
+          <div class="card-body">
+            <h2 class="card-title text-center">{{npc.name}}</h2>
+          </div>
         </div>
+      </div>
     </div>
 </div>
+  
+  
