@@ -1,1 +1,18 @@
-<p>add-element works!</p>
+<div class="container">
+    <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
+        <h3>Upload a JSON file:</h3>
+        <div class="row">
+            <div class="col">
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="file" class="form-control" id="inputJson" name="json" (change)="fileUploaded($event)">
+                        <div *ngIf="fileContent">
+                            <pre>{{ fileContent }}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
+    </form>
+</div>
