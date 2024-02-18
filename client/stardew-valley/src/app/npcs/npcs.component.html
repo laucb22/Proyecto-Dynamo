@@ -1,1 +1,49 @@
-<p>npcs works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h1>NPCs</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Manners</th>
+                        <th scope="col">Social Anxiety</th>
+                        <th scope="col">Optimism</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let vehicle of vehicles">
+                        <th>
+                            <img height="100" width="200" [src] = "vehicle.img_url" alt="">
+                        </th>
+                        <th>{{vehicle.plate_number}}</th>
+                        <th>{{vehicle.model.brand.name}}</th>
+                        <th>{{vehicle.model.name}}</th>
+                        <td>{{vehicle.vehicle_type.vehicle_type}}</td>
+                        <td>{{vehicle.color}}</td>
+                        <td>{{vehicle.price | number: '1.2-2':'es' }} €</td>
+                        <td>{{vehicle.status.status}}</td>
+                        <td>
+                            <button class="btn btn-success" [routerLink]="['/vehicle-edit', vehicle.plate_number]">Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="onDelete(vehicle.plate_number)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
