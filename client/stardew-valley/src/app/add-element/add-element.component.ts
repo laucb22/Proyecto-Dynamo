@@ -15,7 +15,7 @@ export class AddElementComponent {
   // Llama a la función para añadir gatos y le manda los campos del formulario.
   onSubmit(value: any){
     // Pedimos confirmación al usuario
-    if(window.confirm('Are sure you want to add this cat?')){
+    if(window.confirm('Are sure you want to add this element?')){
       this.api.insertNpc(value).subscribe(
         (response) => {
           // Mostramos el pop up
@@ -41,7 +41,7 @@ export class AddElementComponent {
         const catData = JSON.parse(this.fileContent);
         if(catData){
           // Pedimos confirmación al usuario
-          if(window.confirm('Are sure you want to add this cat?')){
+          if(window.confirm('Are sure you want to add this element(s)?')){
             this.api.insertNpc(catData).subscribe(
               (response) => {
                 // Llamamos al pop up
@@ -80,6 +80,6 @@ export class AddElementComponent {
 
   // Pop up para mostrar un mensaje al usuario informándole de que la acción se ha realizado.
   showSuccess() {
-    this.toastr.success('Cat(s) added!');
+    this.toastr.success('Element(s) added!');
   }
 }
