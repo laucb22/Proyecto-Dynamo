@@ -3,13 +3,20 @@ from boto3 import *
 from boto3.dynamodb.conditions import Key
 STARDEW = DB.Table("StardewValley")
 
-def add_element(new_element):
+def add_element(data):
 
-    response = STARDEW.put_item(
-        Item=new_element
-    )
-
-    return response
+    if(isinstance(data, list)):
+        for element in data:
+            STARDEW.put_item(
+                Item = element
+            )
+        return "Items added"
+    else:
+        STARDEW.put_item(
+            Item=data
+        )
+        return "Item added"
+    
 
 
 def get_npcs():
