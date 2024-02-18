@@ -3,10 +3,10 @@ from boto3 import *
 from boto3.dynamodb.conditions import Key
 STARDEW = DB.Table("StardewValley")
 
-def add_npc(new_npc):
+def add_element(new_element):
 
     response = STARDEW.put_item(
-        Item=new_npc
+        Item=new_element
     )
 
     return response

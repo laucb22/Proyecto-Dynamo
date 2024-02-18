@@ -17,7 +17,7 @@ def delete_npc():
 
 @app.route("/insert", methods=["POST"])
 def insert_npc():
-    return mc.add_npc(request.json)
+    return mc.add_element(request.json)
 
 @app.route("/getNpcs", methods=["GET"])
 def get_npcs():
