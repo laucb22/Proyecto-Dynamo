@@ -14,7 +14,11 @@
 }
 
 
-h1, h2, h6, img, a {
+h1, h2, img, a {
+    font-family: StardewValley;
+}
+
+h6 {
     font-family: StardewValley;
 }
 
