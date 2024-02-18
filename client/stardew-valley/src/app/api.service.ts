@@ -13,8 +13,12 @@ export class ApiService {
     return this.http.get<any[]>('http://localhost:5000/getNpcs');
   }
 
-  insertNpc(data: any): Observable<any[]>{
+  insertElement(data: any): Observable<any[]>{
     return this.http.post<any[]>('http://localhost:5000/insert', data)
+  }
+
+  getAchievements(): Observable<any[]>{
+    return this.http.get<any[]>('http://localhost:5000/getAchievements')
   }
 
 }
