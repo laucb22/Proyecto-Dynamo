@@ -1,7 +1,7 @@
 from  config.database import DB
 from boto3 import *
 from boto3.dynamodb.conditions import Key
-STARDEW = DB.table("StardewValley")
+STARDEW = DB.Table("StardewValley")
 
 def add_npc(new_npc):
 
@@ -26,3 +26,6 @@ def delete_npc(name_npc):
             "name":name_npc
         }
     )
+
+def test_get():
+    return STARDEW.scan()["Items"]
