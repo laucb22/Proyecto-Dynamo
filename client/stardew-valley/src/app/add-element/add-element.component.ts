@@ -12,11 +12,11 @@ export class AddElementComponent {
 
   fileContent:string = "";
 
-  // Llama a la función para añadir gatos y le manda los campos del formulario.
+  // Llama a la función para añadir elementos y le manda los campos del formulario.
   onSubmit(value: any){
     // Pedimos confirmación al usuario
     if(window.confirm('Are sure you want to add this element?')){
-      this.api.insertNpc(value).subscribe(
+      this.api.insertElement(value).subscribe(
         (response) => {
           // Mostramos el pop up
           this.showSuccess();
@@ -33,16 +33,16 @@ export class AddElementComponent {
     }
   }
 
-  // Llama a la función para añadir gatos y le manda el JSON.
+  // Llama a la función para añadir elementos y le manda el JSON.
   onSubmitFile(){
     if(this.fileContent){
       try {
         // Parseamos el contenido del archivo para que se envíe correctamente
-        const catData = JSON.parse(this.fileContent);
-        if(catData){
+        const elementData = JSON.parse(this.fileContent);
+        if(elementData){
           // Pedimos confirmación al usuario
           if(window.confirm('Are sure you want to add this element(s)?')){
-            this.api.insertNpc(catData).subscribe(
+            this.api.insertElement(elementData).subscribe(
               (response) => {
                 // Llamamos al pop up
                 this.showSuccess();
