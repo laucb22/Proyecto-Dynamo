@@ -15,7 +15,7 @@
         </div>
         <button type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
     </form>
-    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(231, 143, 172);">
+    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
         <h3>Insert A Villager</h3>
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
@@ -23,7 +23,12 @@
           </div>
           <div class="mb-3">
             <label for="age" class="form-label">Age:</label>
-            <input type="number" min="1" max="30" class="form-control" name="age" [(ngModel)]="vilForm.value.age" required>
+            <select id="age" required [(ngModel)]="vilForm.value.age" name="age">
+                <option value="" disabled selected>How old are they?</option>
+                <option value="adult">adult</option>
+                <option value="teen">teen</option>
+                <option value="child">child</option>
+            </select>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Manners:</label>
