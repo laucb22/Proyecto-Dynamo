@@ -5,9 +5,11 @@ STARDEW = DB.Table("StardewValley")
 
 def add_npc(new_npc):
 
-    STARDEW.put_item(
+    response = STARDEW.put_item(
         Item=new_npc
     )
+
+    return response
 
 
 def get_npcs():
@@ -20,12 +22,15 @@ def get_npcs():
 
 def delete_npc(name_npc):
 
-    STARDEW.delete_item(
+    response = STARDEW.delete_item(
         Key={
             "type":"npc",
             "name":name_npc
         }
     )
 
+    return response
+
 def test_get():
     return STARDEW.scan()["Items"]
+
