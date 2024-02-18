@@ -38,6 +38,17 @@ def delete_npc(name_npc):
 
     return response
 
+def delete_achievement(name_achievement):
+
+    response = STARDEW.delete_item(
+        Key={
+            "type":"npc",
+            "name":name_achievement
+        }
+    )
+    
+    return response
+
 def test_get():
     return STARDEW.scan()["Items"]
 
