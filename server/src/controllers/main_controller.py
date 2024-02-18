@@ -48,3 +48,47 @@ def get_achievements():
     )
 
     return achievements["Items"]
+
+def update_npc(data):
+ 
+    response = STARDEW.update_item(
+        Key={
+            "type":"npc",
+            "name":data["name"]
+        },
+        UpdateExpression = "SET age = :age, manners = :ma, social_anxiety = :sa, optimism = :op, gender = :g, datable = :da, love_interest = :li, home_region = :hr, birthday = :br",
+        ExpressionAttributeValues={
+            ":age": data["age"],
+            ":ma": data["manners"],
+            ":sa": data["social_anxiety"],
+            ":op": data["optimism"],
+            ":g": data["gender"],
+            ":da": data["datable"],
+            ":li": data["love_interest"],
+            ":hr": data["home_region"],
+            ":br": data["birthday"],
+        },
+        ReturnValues="ALL_NEW",
+    )
+    return response
+
+
+def update_archievement(data):
+
+    response = STARDEW.update_item(
+        Key={
+            "type":"achievement",
+            "name":data["name"]
+        },
+        UpdateExpression = "SET description = :de, display_on_collections_tab_before_earned = :doctbe, hat_earned = :he, id = :id, img = :img, prerequisite_achievement = :pa",
+        ExpressionAttributeValues={
+            ":de": data["description"],
+            ":doctbe": data['display_on_collections_tab_before_earned'],
+            ":he": data['hat_earned'],
+            ":id": data["id"],
+            ":img": data["img"],
+            ":pa": data['prerequisite_achievement'],
+        },
+        ReturnValues="ALL_NEW",
+    )
+    return response
