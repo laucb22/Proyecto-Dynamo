@@ -6,9 +6,6 @@ app = Flask(__name__)
 
 CORS(app)
 
-@app.route("/get")
-def get_all():
-    return mc.test_get()
 
 @app.route("/deleteNpc", methods=["DELETE"])
 def delete_npc():
@@ -28,6 +25,9 @@ def insert_npc():
 def get_npcs():
     return mc.get_npcs()
 
+@app.route("/getNpcNames", methods=["GET"])
+def get_npc_names():
+    return mc.get_npc_names()
 @app.route("/getAchievements", methods=["GET"])
 def get_achievements():
     return mc.get_achievements()

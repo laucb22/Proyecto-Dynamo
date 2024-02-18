@@ -18,6 +18,18 @@ def add_element(data):
         return "Item added"
     
 
+def get_npc_names():
+    
+    names = []
+
+    npcs = STARDEW.query(
+        KeyConditionExpression=Key("type").eq("npc")
+    )["Items"]
+
+    for npc in npcs:
+        names.append(npc["name"])
+
+    return names
 
 def get_npcs():
     
@@ -48,9 +60,6 @@ def delete_achievement(name_achievement):
     )
     
     return response
-
-def test_get():
-    return STARDEW.scan()["Items"]
 
 def get_achievements():
     
