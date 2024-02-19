@@ -1,6 +1,6 @@
 <div class="container">
     <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-        <h3>Upload a JSON file:</h3>
+      <img src="../../assets/upload-a-json-file.png">
         <div class="row">
             <div class="col">
                 <div class="row mb-3">
@@ -16,7 +16,7 @@
         <button type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
     </form>
     <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-        <h3>Insert A Villager</h3>
+      <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
             <input type="text" maxlength="20" class="form-control" id="name" name="name" [(ngModel)]="vilForm.value.name" required>
