@@ -23,6 +23,9 @@ export class AddElementComponent implements OnInit{
   defaultDatable = "";
   defaultLoveInterest = "";
 
+  defaultDisplay = "";
+  defaulPrerequisite = "";
+
   ngOnInit(): void {
       this.api.getNpcNames().subscribe((data: any[]) => {
         this.names = data

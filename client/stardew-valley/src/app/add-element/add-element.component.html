@@ -107,6 +107,40 @@
         </div>
         <input type="hidden" [(ngModel)]="vilForm.value.relationships" value=" ">
         <input type="hidden" [(ngModel)]="vilForm.value.start_location" value="Town">
+        <input type="hidden" [(ngModel)]="vilForm.value.type" value="npc">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form> 
+  </div>
+
+  <div class="formContainer mt-3">
+
+    <form #achForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded">
+      <img src="../../assets/insert-a-villager.png">
+        <div class="mb-3">
+            <label for="achName" class="form-label">Name:</label>
+            <input type="text" maxlength="20" class="form-control" id="name" name="name" [(ngModel)]="achForm.value.name" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <input type="text" maxlength="50" class="form-control" id="description" name="description" [(ngModel)]="achForm.value.description" required>
+        </div>
+        <div class="mb-3">
+            <label for="display" class="form-label">Display before earned:</label>
+            <select class="form-select" id="display" required [(ngModel)]="defaultDisplay" name="display">
+                <option value="" disabled selected>Display before earned?</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="prerequisite" class="form-label">Prerequisite achievement:</label>
+            <select class="form-select" id="prerequisite" required [(ngModel)]="defaulPrerequisite" name="prerequisite">
+                <option value="" disabled selected>Prerequisite achievement</option>
+                <option *ngFor="let name of names" value="name">{{name}}</option>
+            </select>
+        </div>
+        <input type="hidden" [(ngModel)]="achForm.value.hat_earned" value=" ">
+        <input type="hidden" [(ngModel)]="achForm.value.type" value="achievement">
         <button type="submit" class="btn btn-primary">Add</button>
     </form> 
   </div>
