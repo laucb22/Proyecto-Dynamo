@@ -15,7 +15,10 @@ h2{
     font-size: 10ch;
 }
 
-#btn-add-elemnt{
+#btn-add-element{
     background-image: url("../../assets/add-element-s.png"); 
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 100px;
 }

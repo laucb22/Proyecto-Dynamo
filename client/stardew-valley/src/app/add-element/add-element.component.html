@@ -1,6 +1,7 @@
 <div class="container">
-    <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-        <h3>Upload a JSON file:</h3>
+  <div class="formContainer mt-3">
+    <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded">
+      <img src="../../assets/upload-a-json-file.png">
         <div class="row">
             <div class="col">
                 <div class="row mb-3">
@@ -27,15 +28,18 @@
         
       </div>
     </form>
-    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-        <h3>Insert A Villager</h3>
+  </div>
+  <div class="formContainer mt-3">
+
+    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded">
+      <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
             <input type="text" maxlength="20" class="form-control" id="name" name="name" [(ngModel)]="vilForm.value.name" required>
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Age:</label>
-            <select id="age" required [(ngModel)]="defaultAge" name="age">
+            <select class="form-select" id="age" required [(ngModel)]="defaultAge" name="age">
                 <option value="" disabled selected>How old are they?</option>
                 <option value="adult">adult</option>
                 <option value="teen">teen</option>
@@ -44,7 +48,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Manners:</label>
-            <select id="manners" required [(ngModel)]="defaultManners" name="manners">
+            <select class="form-select" id="manners" required [(ngModel)]="defaultManners" name="manners">
                 <option value="" disabled selected>How do they behave?</option>
                 <option value="rude">rude</option>
                 <option value="polite">polite</option>
@@ -53,7 +57,7 @@
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Social Anxiety:</label>
-            <select id="social_anxiety" required [(ngModel)]="defaultPersonality" name="social_anxiety">
+            <select class="form-select" id="social_anxiety" required [(ngModel)]="defaultPersonality" name="social_anxiety">
                 <option value="" disabled selected>Select a personality</option>
                 <option value="outgoing">outgoing</option>
                 <option value="neutral">neutral</option>
@@ -62,7 +66,7 @@
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Optimism:</label>
-            <select id="optimism" required [(ngModel)]="defaultOptimism" name="optimism">
+            <select class="form-select" id="optimism" required [(ngModel)]="defaultOptimism" name="optimism">
                 <option value="" disabled selected>What's their mindset?</option>
                 <option value="positive">positive</option>
                 <option value="neutral">neutral</option>
@@ -71,7 +75,7 @@
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Gender:</label>
-            <select id="gender" required [(ngModel)]="defaultGender" name="gender">
+            <select class="form-select" id="gender" required [(ngModel)]="defaultGender" name="gender">
                 <option value="" disabled selected>Select a gender</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
@@ -80,7 +84,7 @@
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Datable:</label>
-            <select id="datable" required [(ngModel)]="defaultDatable" name="datable">
+            <select class="form-select" id="datable" required [(ngModel)]="defaultDatable" name="datable">
                 <option value="" disabled selected>Are they single and ready to mingle?</option>
                 <option value="yes">yes</option>
                 <option value="no">no</option>
@@ -88,7 +92,7 @@
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Love Interest:</label>
-            <select id="love_interest" required [(ngModel)]="defaultLoveInterest" name="love_interest">
+            <select class="form-select" id="love_interest" required [(ngModel)]="defaultLoveInterest" name="love_interest">
                 <option value="" disabled selected>Choose a lover</option>
                 <option *ngFor="let name of names" value="name">{{name}}</option>
             </select>
@@ -105,4 +109,5 @@
         <input type="hidden" [(ngModel)]="vilForm.value.start_location" value="Town">
         <button type="submit" class="btn btn-primary">Add</button>
     </form> 
+  </div>
 </div>
