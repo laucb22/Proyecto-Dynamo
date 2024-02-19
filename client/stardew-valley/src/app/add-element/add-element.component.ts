@@ -137,9 +137,15 @@ export class AddElementComponent implements OnInit{
   submitElement(data: any, isNpc: boolean){
     console.log(data)
     data.type = isNpc ? "npc" : "achievement";
-    data.relationships = " "
-    data.img = " "
-    data.start_location = "Never"
+    if(data.type == "npc"){
+      data.relationships = " "
+      data.img = " "
+      data.start_location = "Never"
+    } else{
+      data.hat_earned = 0
+      data.img = " "
+    }
+    
     if(confirm("Are you sure you want to add this item?")){
       this.api.insertElement(data).subscribe(
         (response) => {
