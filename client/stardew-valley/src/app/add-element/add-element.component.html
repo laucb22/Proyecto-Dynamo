@@ -6,14 +6,26 @@
                 <div class="row mb-3">
                     <div class="col">
                         <input type="file" class="form-control" id="inputJson" name="json" (change)="fileUploaded($event)">
-                        <div *ngIf="fileContent">
-                            <pre>{{ fileContent }}</pre>
+                        <div *ngIf="fileContent && !wrongFormat">
+                            <pre>{{ fileContent | json }}</pre>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
+        <button *ngIf="fileContent && !wrongFormat && !isNotComplete" type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
+        <div *ngIf="isNotComplete" class="row">
+          <div class="col">
+              <p class="text-danger">Error: Data is incomplete</p>
+          </div>
+        </div>
+          <div *ngIf="wrongFormat" class="row">
+            <div class="col">
+                <p class="text-danger">Error: Wrong Format </p>
+            </div>
+        
+      </div>
     </form>
     <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
         <h3>Insert A Villager</h3>
