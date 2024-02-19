@@ -123,3 +123,14 @@ def get_random_npc():
     chosen_npc = random.choice(npcs)
 
     return chosen_npc
+
+def get_specific_npc(name):
+    print(name)
+    npc = STARDEW.get_item(
+        Key={
+            "type": "npc",
+            "name":  name
+        }
+    )
+
+    return npc["Item"]
