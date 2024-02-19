@@ -12,6 +12,14 @@ export class AddElementComponent implements OnInit{
   names: any[] = []
   fileContent:string = "";
 
+  defaultAge = "";
+  defaultManners = "";
+  defaultPersonality = "";
+  defaultOptimism = "";
+  defaultGender = "";
+  defaultDatable = "";
+  defaultLoveInterest = "";
+
   ngOnInit(): void {
       this.api.getNpcNames().subscribe((data: any[]) => {
         this.names = data
