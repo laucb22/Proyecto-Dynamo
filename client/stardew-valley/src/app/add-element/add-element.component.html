@@ -1,18 +1,7 @@
 <div class="container">
-<<<<<<< HEAD
-    <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-      <img src="../../assets/upload-a-json-file.png">
-        <div class="row">
-            <div class="col">
-                <div class="row mb-3">
-                    <div class="col">
-                        <input type="file" class="form-control" id="inputJson" name="json" (change)="fileUploaded($event)">
-                        <div *ngIf="fileContent">
-                            <pre>{{ fileContent }}</pre>
-=======
-    <div class="formContainer">
+    <div class="formContainer mt-3">
         <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded">
-            <h3>Upload a JSON file:</h3>
+          <img src="../../assets/upload-a-json-file.png">
             <div class="row">
                 <div class="col">
                     <div class="row mb-3">
@@ -21,16 +10,15 @@
                             <div *ngIf="fileContent">
                                 <pre>{{ fileContent }}</pre>
                             </div>
->>>>>>> c3e72b721c497ff06502afa7b1842c7d7ec0c691
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
+            <button id="btn-add-element" type="submit">Add element(s)</button>
         </form>
     </div>
     
-    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
+    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="formContainer mt-3 p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
       <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
