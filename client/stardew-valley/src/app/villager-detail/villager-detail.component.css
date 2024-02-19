@@ -9,8 +9,12 @@
     overflow: hidden;
 }
 
-h2{
+h1{
     font-family: 'StardewValley';
+}
+p{
+    font-family: 'StardewValley';
+    font-size: x-large;
 }
 
 #title{
