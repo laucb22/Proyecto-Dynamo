@@ -1,0 +1,55 @@
+/**.table.thead {
+    border-image: url("https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png");
+    border-image-slice: 20;
+    border-image-width: 20;
+    border-image-outset: 5;
+    border-image-repeat: round;
+    background-color: #ffa;
+    overflow: hidden;
+}**/
+
+.register{
+    border-image: url("https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png");
+    border-image-slice: 20;
+    border-image-width: 20;
+    border-image-outset: 5;
+    border-image-repeat: round;
+    font-family: 'StardewValley';
+    font-size: large;
+    background-color: #ffa;
+}
+
+.register:hover{
+    transform: scale(1.06);
+}
+
+.hueco{
+    background-color: transparent;
+}
+
+.encabezado{
+    border-image: url("https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png");
+    border-image-slice: 20;
+    border-image-width: 20;
+    border-image-outset: 5;
+    border-image-repeat: round;
+    background-color: #ffa;
+    font-family: 'StardewValley';
+    font-size: 30px;
+    height:100px;
+    text-align: center;
+    justify-content: center;
+}
+
+.encabezados{
+    background-color: transparent;
+}
+
+.card-img{
+    width: 90px;
+    height: 70px;
+}
+
+table{
+    background-color: transparent;
+}
