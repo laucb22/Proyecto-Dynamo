@@ -25,8 +25,8 @@ export class ApiService {
     return this.http.get<any[]>("http://localhost:5000/getNpcNames")
   }
 
-  getOneNpc(): Observable<any[]>{
-    return this.http.get<any[]>("http://localhost:5000/getOneNpc");
+  getOneNpc(name: string): Observable<any[]>{
+    return this.http.get<any[]>(`http://localhost:5000/getOneNpc/${name}`);
   }
 
 }

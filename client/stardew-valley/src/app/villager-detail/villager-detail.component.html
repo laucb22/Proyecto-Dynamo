@@ -1,1 +1,22 @@
-<p>villager-detail works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <img src="../../assets/villagers.png">
+      </div>
+    </div>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img [src]="villager.img" class="img-fluid rounded-start" alt="{{villager.name}} Image">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{villager.name}}</h5>
+              <p class="card-text">{{villager.age}}</p>
+              <p class="card-text">{{villager.manners}}</p>
+              <p class="card-text">{{villager.personality}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

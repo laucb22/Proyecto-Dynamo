@@ -6,6 +6,7 @@ import { EditNpcComponent } from './edit-npc/edit-npc.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { EditAchievementComponent } from './edit-achievement/edit-achievement.component';
 import { AddElementComponent } from './add-element/add-element.component';
+import { VillagerDetailComponent } from './villager-detail/villager-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'achievements', component: AchievementsComponent},
   {path: 'edit-achievement', component: EditAchievementComponent},
   {path: 'add-element', component: AddElementComponent},
+  {path: 'villager-detail/:name', component: VillagerDetailComponent},
 ];
 
 @NgModule({
