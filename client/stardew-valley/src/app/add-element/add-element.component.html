@@ -31,7 +31,7 @@
   </div>
   <div class="formContainer mt-3">
 
-    <form #vilForm="ngForm" (ngSubmit)= "submitElement(vilForm.value, true)" class="p-4 rounded">
+    <form #vilForm="ngForm" ngNativeValidate (ngSubmit)= "submitElement(vilForm.value, true)" class="p-4 rounded">
       <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
@@ -111,7 +111,7 @@
 
   <div class="formContainer mt-3">
 
-    <form #achForm="ngForm" (ngSubmit)= "submitElement(achForm.value, false)" class="p-4 rounded">
+    <form #achForm="ngForm" ngNativeValidate (ngSubmit)= "submitElement(achForm.value, false)" class="p-4 rounded">
       <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="achName" class="form-label">Name:</label>
