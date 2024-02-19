@@ -6,17 +6,27 @@
             <div class="col">
                 <div class="row mb-3">
                     <div class="col">
-                        <input type="file" class="form-control" id="inputJson" name="json" (change)="fileUploaded($event)">
-                        <div *ngIf="fileContent && !wrongFormat" style="background-color: rgba(255, 255, 255, 0.441);">
+                      <div class="row d-flex align-items-center">
+                        <div class="col-3">
+                          <label for="input-json">
+                            <img src="https://stardewcommunitywiki.com/mediawiki/images/e/ea/Pierre%27s_Missing_Stocklist.png" width="50" height="50" style="cursor: pointer;">
+                          </label>
+                          <input type="file" id="input-json" name="json" (change)="fileUploaded($event)" style="display:none">
+                          <span style="font-size: x-large;">{{ 'Selected file: ' + fileName}}</span>
+                        </div>
+                        <div class="col-2">
+                          <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-element-s.png"/></button>
+                        </div>
+                      </div>
+                        <div *ngIf="fileContent && !wrongFormat" style="color: blanchedalmond; background-color: rgba(20, 20, 20, 0.262);">
                             <pre>{{ fileContent | json }}</pre>
                         </div>
                     </div>
                 </div>
-                <button style="padding: 0;"><img style="height: 50px;" src="../../assets/add-element-s.png"/></button>
             </div>
         </div>
         <button *ngIf="fileContent && !wrongFormat && !isNotComplete" type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
-        <div *ngIf="isNotComplete" class="row">
+        <div *ngIf="isNotComplete" class="row"> 
           <div class="col">
               <p class="text-danger">Error: Data is incomplete</p>
           </div>
@@ -95,7 +105,7 @@
             <select class="form-select" id="love_interest" required [(ngModel)]="defaultLoveInterest" name="love_interest">
                 <option value="" disabled selected>Choose a lover</option>
                 <option *ngFor="let name of names" value="name">{{name}}</option>
-            </select>
+      21212      </select>
         </div>
         <div class="mb-3">
             <label for="home_region" class="form-label">Home Region:</label>
@@ -105,7 +115,7 @@
             <label for="birthday" class="form-label">Birthday:</label>
             <input type="text" maxlength="20" class="form-control" name="birthday" [(ngModel)]="vilForm.value.birthday" required>
         </div>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-element-s.png"/></button>
     </form> 
   </div>
 
@@ -138,7 +148,7 @@
         </div>
         <input type="hidden" [(ngModel)]="achForm.value.hat_earned" value=" ">
         <input type="hidden" [(ngModel)]="achForm.value.type" value="achievement">
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-element-s.png"/></button>
     </form> 
   </div>
 </div>
