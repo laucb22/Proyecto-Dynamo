@@ -132,7 +132,13 @@ export class AddElementComponent implements OnInit{
     }
   }
   villagerSubmit(data: any){
-
+    if(confirm("Are you sure you want to add this item?"))
+    this.api.insertElement(data).subscribe(
+      (response) => {
+        console.log(response);
+      }, (error) => {
+        console.log(error)
+      })
   }
 
   // Pop up para mostrar un mensaje al usuario informándole de que la acción se ha realizado.
