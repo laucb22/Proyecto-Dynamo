@@ -14,11 +14,3 @@ h2{
 #title{
     font-size: 10ch;
 }
-
-#btn-add-element{
-    background-image: url("../../assets/add-element-s.png"); 
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 200px;
-    height: 100px;
-}
