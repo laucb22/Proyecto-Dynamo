@@ -45,3 +45,7 @@ def update_achievement():
 @app.route("/getRandomNpc", methods=["GET"])
 def get_random_npc():
     return mc.get_random_npc()
+
+@app.route("/getOneNpc/<name>", methods=["GET"])
+def get_specific_npc(name):
+    return mc.get_specific_npc(name)

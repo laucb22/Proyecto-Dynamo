@@ -22,6 +22,9 @@ export class AddElementComponent implements OnInit{
   defaultGender = "";
   defaultDatable = "";
   defaultLoveInterest = "";
+  
+  defaultDisplay = "";
+  defaulPrerequisite = "";
 
   ngOnInit(): void {
       this.api.getNpcNames().subscribe((data: any[]) => {
@@ -131,8 +134,27 @@ export class AddElementComponent implements OnInit{
       return true
     }
   }
-  villagerSubmit(data: any){
-
+  submitElement(data: any, isNpc: boolean){
+    console.log(data)
+    data.type = isNpc ? "npc" : "achievement";
+    if(data.type == "npc"){
+      data.relationships = " "
+      data.img = " "
+      data.start_location = "Never"
+    } else{
+      data.hat_earned = 0
+      data.img = " "
+    }
+    
+    if(confirm("Are you sure you want to add this item?")){
+      this.api.insertElement(data).subscribe(
+        (response) => {
+          console.log(response);
+        }, (error) => {
+          console.log(error)
+        })
+    }
+    
   }
 
   // Pop up para mostrar un mensaje al usuario informándole de que la acción se ha realizado.
