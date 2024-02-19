@@ -31,7 +31,7 @@
   </div>
   <div class="formContainer mt-3">
 
-    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded">
+    <form #vilForm="ngForm" (ngSubmit)= "submitElement(vilForm.value, true)" class="p-4 rounded">
       <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
@@ -105,16 +105,13 @@
             <label for="birthday" class="form-label">Birthday:</label>
             <input type="text" maxlength="20" class="form-control" name="birthday" [(ngModel)]="vilForm.value.birthday" required>
         </div>
-        <input type="hidden" [(ngModel)]="vilForm.value.relationships" value=" ">
-        <input type="hidden" [(ngModel)]="vilForm.value.start_location" value="Town">
-        <input type="hidden" [(ngModel)]="vilForm.value.type" value="npc">
         <button type="submit" class="btn btn-primary">Add</button>
     </form> 
   </div>
 
   <div class="formContainer mt-3">
 
-    <form #achForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded">
+    <form #achForm="ngForm" (ngSubmit)= "submitElement(achForm.value, false)" class="p-4 rounded">
       <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="achName" class="form-label">Name:</label>
