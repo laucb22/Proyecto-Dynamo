@@ -13,7 +13,6 @@
     font-style: normal;
 }
 
-
 h1, h2, img, a {
     font-family: StardewValley;
 }
@@ -29,3 +28,14 @@ body {
     background-attachment: fixed;
 }
 
+html{
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=152330),auto;
+}
+
+html *:hover{
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=152330),auto;
+}
+
+html:active *:hover{
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=152330),auto;
+}
