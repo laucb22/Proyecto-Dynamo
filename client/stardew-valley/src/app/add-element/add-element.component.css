@@ -5,6 +5,11 @@
     border-image-width: 20;
     border-image-outset: 5;
     border-image-repeat: round;
+    
+    /* Background pattern from Toptal Subtle Patterns */
+    background-image: url("https://pics.craiyon.com/2023-09-18/c049c07bbd6d420b88fe32cf2e66f900.webp");
+    background-repeat:repeat-y repeat-x,;
+    background-size: 150px;
 }
 
 h2{
@@ -13,4 +18,9 @@ h2{
 
 #title{
     font-size: 10ch;
+}
+
+#btn-add:hover{
+    transition-delay:0.01s;
+    border: 2px solid;
 }

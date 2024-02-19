@@ -14,7 +14,7 @@ export class AddElementComponent implements OnInit{
   wrongFormat:boolean = false
   isNotComplete: boolean = false
   fileContent:string = "";
-
+  fileName:string = "None";
   defaultAge = "";
   defaultManners = "";
   defaultPersonality = "";
@@ -87,7 +87,7 @@ export class AddElementComponent implements OnInit{
   // Muestra el contenido del JSON seleccionado por el usuario
   fileUploaded(event: any) {
     const file = event.target.files[0];
-    
+    this.fileName = file.name;
     if(file.name.split(".")[1] != "json"){
       this.wrongFormat = true;
       this.isNotComplete = false;
