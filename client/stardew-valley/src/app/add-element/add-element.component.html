@@ -1,18 +1,5 @@
 <div class="container">
     <div class="formContainer mt-3">
-<<<<<<< HEAD
-    <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-        <h3>Upload a JSON file:</h3>
-        <div class="row">
-            <div class="col">
-                <div class="row mb-3">
-                    <div class="col">
-                        <input type="file" class="form-control" id="inputJson" name="json" (change)="fileUploaded($event)">
-                        <div *ngIf="fileContent && !wrongFormat">
-                            <pre>{{ fileContent | json }}</pre>
-                            
-=======
-    <div class="formContainer">
         <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded">
           <img src="../../assets/upload-a-json-file.png">
             <div class="row">
@@ -23,37 +10,16 @@
                             <div *ngIf="fileContent">
                                 <pre>{{ fileContent }}</pre>
                             </div>
->>>>>>> 5a5e077241398bdfd6f0d078cf2b54f37ee9481a
                         </div>
                     </div>
                 </div>
             </div>
             <button id="btn-add-element" type="submit">Add element(s)</button>
-<<<<<<< HEAD
-        </div>
-        <button *ngIf="fileContent && !wrongFormat && !isNotComplete" type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
-        <div *ngIf="isNotComplete" class="row">
-          <div class="col">
-              <p class="text-danger">Error: Data is incomplete</p>
-          </div>
-        </div>
-          <div *ngIf="wrongFormat" class="row">
-            <div class="col">
-                <p class="text-danger">Error: Wrong Format </p>
-            </div>
-        
-      </div>
-    </form>
-=======
-            <button type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
         </form>
     </div>
     
     <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="formContainer mt-3 p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
       <img src="../../assets/insert-a-villager.png">
->>>>>>> 5a5e077241398bdfd6f0d078cf2b54f37ee9481a
-    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-        <h3>Insert A Villager</h3>
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
             <input type="text" maxlength="20" class="form-control" id="name" name="name" [(ngModel)]="vilForm.value.name" required>
