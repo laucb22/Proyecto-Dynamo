@@ -1,6 +1,7 @@
 <div class="container">
-    <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
-        <h3>Upload a JSON file:</h3>
+  <div class="formContainer mt-3">
+    <form #vForm="ngForm" (ngSubmit) = "onSubmitFile()" class="p-4 rounded">
+      <img src="../../assets/upload-a-json-file.png">
         <div class="row">
             <div class="col">
                 <div class="row mb-3">
@@ -27,7 +28,10 @@
         
       </div>
     </form>
-    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
+  </div>
+  <div class="formContainer mt-3">
+
+    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded">
       <img src="../../assets/insert-a-villager.png">
         <div class="mb-3">
             <label for="vilName" class="form-label">Name:</label>
@@ -105,4 +109,5 @@
         <input type="hidden" [(ngModel)]="vilForm.value.start_location" value="Town">
         <button type="submit" class="btn btn-primary">Add</button>
     </form> 
+  </div>
 </div>
