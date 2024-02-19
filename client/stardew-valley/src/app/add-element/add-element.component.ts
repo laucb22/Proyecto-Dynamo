@@ -90,6 +90,7 @@ export class AddElementComponent implements OnInit{
     
     if(file.name.split(".")[1] != "json"){
       this.wrongFormat = true;
+      this.isNotComplete = false;
       return;
     }
     this.wrongFormat = false;
