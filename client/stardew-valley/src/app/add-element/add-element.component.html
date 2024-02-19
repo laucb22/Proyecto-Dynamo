@@ -7,12 +7,12 @@
                 <div class="row mb-3">
                     <div class="col">
                         <input type="file" class="form-control" id="inputJson" name="json" (change)="fileUploaded($event)">
-                        <div *ngIf="fileContent && !wrongFormat">
+                        <div *ngIf="fileContent && !wrongFormat" style="background-color: rgba(255, 255, 255, 0.441);">
                             <pre>{{ fileContent | json }}</pre>
-                            
                         </div>
                     </div>
                 </div>
+                <button style="padding: 0;"><img style="height: 50px;" src="../../assets/add-element-s.png"/></button>
             </div>
         </div>
         <button *ngIf="fileContent && !wrongFormat && !isNotComplete" type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
