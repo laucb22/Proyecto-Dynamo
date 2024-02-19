@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -7,10 +7,16 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './add-element.component.html',
   styleUrls: ['./add-element.component.css']
 })
-export class AddElementComponent {
+export class AddElementComponent implements OnInit{
   constructor(private api: ApiService, private toastr: ToastrService){}
-
+  names: any[] = []
   fileContent:string = "";
+
+  ngOnInit(): void {
+      this.api.getNpcNames().subscribe((data: any[]) => {
+        this.names = data
+      })
+  }
 
   // Llama a la función para añadir elementos y le manda los campos del formulario.
   onSubmit(value: any){
@@ -76,6 +82,11 @@ export class AddElementComponent {
       this.fileContent = fileReader.result as string;
     };
     fileReader.readAsText(file);
+  }
+
+
+  villagerSubmit(data: any){
+
   }
 
   // Pop up para mostrar un mensaje al usuario informándole de que la acción se ha realizado.

@@ -15,4 +15,88 @@
         </div>
         <button type="submit" class="btn btn-primary" style="background-color: rgb(231, 143, 172); border-color: rgb(231, 143, 172);">Add element(s)</button>
     </form>
+    <form #vilForm="ngForm" (ngSubmit)= "villagerSubmit" class="p-4 rounded" style="background-color: rgb(255 255 255 / 75%);">
+        <h3>Insert A Villager</h3>
+        <div class="mb-3">
+            <label for="vilName" class="form-label">Name:</label>
+            <input type="text" maxlength="20" class="form-control" id="name" name="name" [(ngModel)]="vilForm.value.name" required>
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Age:</label>
+            <select id="age" required [(ngModel)]="vilForm.value.age" name="age">
+                <option value="" disabled selected>How old are they?</option>
+                <option value="adult">adult</option>
+                <option value="teen">teen</option>
+                <option value="child">child</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Manners:</label>
+            <select id="manners" required [(ngModel)]="vilForm.value.manners" name="manners">
+                <option value="" disabled selected>How do they behave?</option>
+                <option value="rude">rude</option>
+                <option value="polite">polite</option>
+                <option value="neutral">neutral</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Social Anxiety:</label>
+            <select id="social_anxiety" required [(ngModel)]="vilForm.value.social_anxiety" name="social_anxiety">
+                <option value="" disabled selected>Select a personality</option>
+                <option value="outgoing">outgoing</option>
+                <option value="neutral">neutral</option>
+                <option value="shy">shy</option>
+            </select>
+              
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Optimism:</label>
+            <select id="optimism" required [(ngModel)]="vilForm.value.optimism" name="optimism">
+                <option value="" disabled selected>What's their mindset?</option>
+                <option value="positive">positive</option>
+                <option value="neutral">neutral</option>
+                <option value="negative">negative</option>
+            </select>
+              
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Gender:</label>
+            <select id="gender" required [(ngModel)]="vilForm.value.gender" name="gender">
+                <option value="" disabled selected>Select a gender</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="undefined">unknown</option>
+            </select>
+              
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Datable:</label>
+            <select id="datable" required [(ngModel)]="vilForm.value.datable" name="datable">
+                <option value="" disabled selected>Are they single and ready to mingle?</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+              
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Love Interest:</label>
+            <select id="love_interest" required [(ngModel)]="vilForm.value.love_interest" name="love_interest">
+                <option value="" disabled selected>Choose a lover</option>
+                <option *ngFor="let name of names" value="name">{{name}}</option>
+            </select>
+              
+          </div>
+          <div class="mb-3">
+            <label for="home_region" class="form-label">Home Region:</label>
+            <input type="text" maxlength="20" class="form-control" name="home_region" [(ngModel)]="vilForm.value.home_region" required>
+          </div>
+          <div class="mb-3">
+            <label for="birthday" class="form-label">Birthday:</label>
+            <input type="text" maxlength="20" class="form-control" name="birthday" [(ngModel)]="vilForm.value.birthday" required>
+          </div>
+          <input type="hidden" [(ngModel)]="vilForm.value.relationships" value=" ">
+          <input type="hidden" [(ngModel)]="vilForm.value.start_location" value="Town">
+
+          <button type="submit" class="btn btn-primary">Add</button>
+    </form> 
 </div>
