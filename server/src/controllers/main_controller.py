@@ -1,6 +1,7 @@
 from  config.database import DB
 from boto3 import *
 from boto3.dynamodb.conditions import Key
+import random
 STARDEW = DB.Table("StardewValley")
 
 def add_element(data):
@@ -112,3 +113,24 @@ def update_archievement(data):
         ReturnValues="ALL_NEW",
     )
     return response
+
+def get_random_npc():
+    
+    npcs = STARDEW.query(
+    KeyConditionExpression=Key("type").eq("npc")
+    )["Items"]
+
+    chosen_npc = random.choice(npcs)
+
+    return chosen_npc
+
+def get_specific_npc(name):
+    print(name)
+    npc = STARDEW.get_item(
+        Key={
+            "type": "npc",
+            "name":  name
+        }
+    )
+
+    return npc["Item"]

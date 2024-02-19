@@ -17,6 +17,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddElementComponent } from './add-element/add-element.component';
 import { MyDatablePipe } from './custom.datablepipe';
+import { VillagerDetailComponent } from './villager-detail/villager-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MyDatablePipe } from './custom.datablepipe';
     NavbarComponent,
     FooterComponent,
     AddElementComponent,
-    MyDatablePipe
+    MyDatablePipe,
+    VillagerDetailComponent
   ],
   imports: [
     BrowserModule,
