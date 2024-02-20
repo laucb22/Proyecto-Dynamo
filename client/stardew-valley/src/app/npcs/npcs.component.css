@@ -8,6 +8,9 @@
     background-color: #ffa;
     overflow: hidden;
 }
+.card:hover{
+    transform: scale(1.06);
+}
 
 h2{
     font-family: 'StardewValley';
