@@ -4,31 +4,33 @@
         <img src="../../assets/villagers.png">
       </div>
     </div>
-    <div class="card mb-3">
+    <div class="row gap-4 d-flex justify-content-center">
+      <div class="card col-4 d-flex align-items-center justify-content-center">
+          <img [src]="villager.img" class="img-fluid rounded-start" alt="{{villager.name}} Image" style="width: 60%;">
+      </div>
+      <div class="card col-6 mb-3">
         <div class="row g-0">
-          <div class="col-md-4 d-flex align-items-center justify-content-center">
-            <img [src]="villager.img" class="img-fluid rounded-start" alt="{{villager.name}} Image" style="width: 60%;">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h1 class="card-title">{{villager.name}}</h1>
-              <div class="row">
-                <div class="col">
-                    <p class="card-text">Age: {{villager.age}}</p>
-                    <p class="card-text">Manners: {{villager.manners}}</p>
-                    <p class="card-text">Personality: {{villager.social_anxiety}}</p>
-                    <p class="card-text">Optimism: {{villager.optimism}}</p>
-                    <p class="card-text">Gender: {{villager.gender}}</p>
-                </div>
-                <div class="col">
-                    <p class="card-text">Datable: {{villager.datable}}</p>
-                    <p class="card-text">Love interest: {{villager.love_interest}}</p>
-                    <p class="card-text">Home region: {{villager.home_region}}</p>
-                    <p class="card-text">Birthday: {{villager.birthday}}</p>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h1 class="card-title">{{villager.name}}</h1>
+                <div class="row">
+                  <div class="col">
+                      <p class="card-text">Age: {{villager.age}}</p>
+                      <p class="card-text">Manners: {{villager.manners}}</p>
+                      <p class="card-text">Personality: {{villager.social_anxiety}}</p>
+                      <p class="card-text">Optimism: {{villager.optimism}}</p>
+                      <p class="card-text">Gender: {{villager.gender}}</p>
+                  </div>
+                  <div class="col">
+                      <p class="card-text">Dateable: {{villager.datable}}</p>
+                      <p class="card-text">Love interest: {{villager.love_interest}}</p>
+                      <p class="card-text">Home region: {{villager.home_region}}</p>
+                      <p class="card-text">Birthday: {{villager.birthday}}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+    </div>
 </div>
