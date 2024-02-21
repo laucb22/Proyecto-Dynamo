@@ -26,6 +26,8 @@ export class AddElementComponent implements OnInit{
   defaultDisplay = "";
   defaulPrerequisite = "";
 
+  defaultMonth = "";
+
   ngOnInit(): void {
       this.api.getNpcNames().subscribe((data: any[]) => {
         this.names = data
