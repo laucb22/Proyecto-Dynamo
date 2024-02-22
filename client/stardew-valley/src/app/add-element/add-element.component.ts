@@ -15,6 +15,8 @@ export class AddElementComponent implements OnInit{
   isNotComplete: boolean = false
   fileContent:string = "";
   fileName:string = "None";
+  imgUrl: string = ""
+  wrongImgFormat: boolean = false;
   defaultAge = "";
   defaultManners = "";
   defaultPersonality = "";
@@ -145,7 +147,7 @@ export class AddElementComponent implements OnInit{
     if(data.type == "npc"){
       data.relationships = " "
       data.img = " "
-      data.start_location = "Never"
+      data.start_location = "Town"
       data.birthday = data.month + " " + data.day
     } else{
       data.hat_earned = 0
@@ -162,6 +164,19 @@ export class AddElementComponent implements OnInit{
     }
     
   }
+
+
+  imgUploaded(url: any){
+    let extension = url.split(".")[url.split(".").length - 1];
+    console.log(extension)
+    if(extension != "png" && extension != "jpg"){
+      this.wrongImgFormat = true;
+      return;
+    }
+    this.imgUrl = url
+    this.wrongImgFormat = false;
+  }
+
 
   // Pop up para mostrar un mensaje al usuario informándole de que la acción se ha realizado.
   showSuccess() {

@@ -94,6 +94,7 @@
                 <option value="undefined">unknown</option>
             </select>
         </div>
+        
         <div class="mb-3">
             <label for="age" class="form-label">Datable:</label>
             <select class="form-select" id="datable" required [(ngModel)]="defaultDatable" name="datable">
@@ -107,7 +108,7 @@
             <select class="form-select" id="love_interest" required [(ngModel)]="defaultLoveInterest" name="love_interest">
                 <option value="" disabled selected>Choose a lover</option>
                 <option *ngFor="let name of names" value="name">{{name}}</option>
-      21212      </select>
+            </select>
         </div>
         <div class="mb-3">
             <label for="home_region" class="form-label">Home Region:</label>
@@ -127,6 +128,14 @@
             <label for="day" class="form-label">Day:</label>
             <input type="number" min="1" max="28" class="form-control" name="day" [(ngModel)]="vilForm.value.day" required>
           
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Image URL</label>
+            <input #imgValue type="url" [(ngModel)] ="vilForm.value.img" (change)="imgUploaded(imgValue.value)">
+            <img height="100px" width="100px" *ngIf="imgUrl && !wrongImgFormat" [src]="imgUrl" alt="">
+            <div *ngIf="wrongImgFormat">
+              <p class="text-danger">Error: Wrong image format, please use png or jpg</p>
+            </div>
           </div>
         <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-element-s.png"/></button>
     </form> 
