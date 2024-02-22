@@ -13,7 +13,7 @@
         </div>
         <div class="row">
           <div class="d-flex align-items-center justify-content-center name">
-              <h1>{{villager.name}}</h1>
+              <h1 class="mt-1">{{villager.name}}</h1>
               <img *ngIf="isDatable" src="https://stardewcommunitywiki.com/mediawiki/images/5/59/Secret_Heart.png" class="img-fluid rounded-start" alt="{{villager.datable}}">
           </div>
         </div>
@@ -27,13 +27,17 @@
                       <p class="card-text">Age: {{villager.age}}</p>
                       <p class="card-text">Manners: {{villager.manners}}</p>
                       <p class="card-text">Personality: {{villager.social_anxiety}}</p>
-                      <p class="card-text">Optimism: {{villager.optimism}}</p>
+                      <p class="card-text">Optimism: 
+                        <img [src]="optimismImg" class="img-fluid rounded-start" alt="{{villager.optimism}}">
+                      </p>
                   </div>
                   <div class="col details">
                       <p class="card-text">Gender: {{villager.gender}}</p>
                       <p class="card-text">Love interest: {{villager.love_interest}}</p>
                       <p class="card-text">Home region: {{villager.home_region}}</p>
-                      <p class="card-text">Birthday: {{villager.birthday}}</p>
+                      <p class="card-text">Birthday: 
+                        <img [src]="monthImg" class="img-fluid rounded-start h-100" alt="{{month}}">
+                        {{day}}</p>
                   </div>
                 </div>
               </div>
