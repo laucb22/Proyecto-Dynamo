@@ -10,6 +10,7 @@ import { ApiService } from '../api.service';
 export class VillagerDetailComponent implements OnInit {
   name: any;
   villager: any;
+  isDatable = false;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
@@ -19,6 +20,9 @@ export class VillagerDetailComponent implements OnInit {
     this.apiService.getOneNpc(this.name).subscribe(
       data => {
         this.villager = data;
+        if(this.villager.datable == 'datable'){
+          this.isDatable = true;
+        }
         console.log(this.villager);
       },
       error => {
