@@ -14,6 +14,7 @@
         <div class="row">
           <div class="d-flex align-items-center justify-content-center name">
               <h1>{{villager.name}}</h1>
+              <img *ngIf="isDatable" src="https://stardewcommunitywiki.com/mediawiki/images/5/59/Secret_Heart.png" class="img-fluid rounded-start" alt="{{villager.datable}}">
           </div>
         </div>
       </div>
@@ -27,10 +28,9 @@
                       <p class="card-text">Manners: {{villager.manners}}</p>
                       <p class="card-text">Personality: {{villager.social_anxiety}}</p>
                       <p class="card-text">Optimism: {{villager.optimism}}</p>
-                      <p class="card-text">Gender: {{villager.gender}}</p>
                   </div>
                   <div class="col details">
-                      <p class="card-text">Dateable: {{villager.datable}}</p>
+                      <p class="card-text">Gender: {{villager.gender}}</p>
                       <p class="card-text">Love interest: {{villager.love_interest}}</p>
                       <p class="card-text">Home region: {{villager.home_region}}</p>
                       <p class="card-text">Birthday: {{villager.birthday}}</p>
