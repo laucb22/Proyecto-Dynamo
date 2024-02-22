@@ -28,6 +28,11 @@ def get_npcs():
 @app.route("/getNpcNames", methods=["GET"])
 def get_npc_names():
     return mc.get_npc_names()
+
+@app.route("/getMaleNpcs", methods=["GET"])
+def get_male_npcs():
+    return mc.get_male_npcs()
+
 @app.route("/getAchievements", methods=["GET"])
 def get_achievements():
     return mc.get_achievements()

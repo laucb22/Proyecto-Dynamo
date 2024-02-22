@@ -1,6 +1,11 @@
 from  config.database import DB
 from boto3 import *
 from boto3.dynamodb.conditions import Key
+
+
+from boto3.dynamodb.conditions import Attr
+
+
 import random
 STARDEW = DB.Table("StardewValley")
 
@@ -40,6 +45,14 @@ def get_npcs():
 
     return npcs["Items"]
 
+def get_male_npcs():
+    npcs = STARDEW.query(
+        KeyConditionExpression=Key("type").eq("npc"),
+        FilterExpression=Attr("gender").eq("male")
+    )["Items"]
+
+    return npcs
+
 def delete_npc(name_npc):
 
     response = STARDEW.delete_item(
@@ -55,7 +68,7 @@ def delete_achievement(name_achievement):
 
     response = STARDEW.delete_item(
         Key={
-            "type":"npc",
+            "type":"achievement",
             "name":name_achievement
         }
     )
@@ -64,11 +77,18 @@ def delete_achievement(name_achievement):
 
 def get_achievements():
     
-    achievements = STARDEW.query(
+    response = STARDEW.query(
         KeyConditionExpression=Key("type").eq("achievement")
     )
 
-    return achievements["Items"]
+    achievements = response["Items"]
+    for achievement in achievements:
+        for a in achievements:
+            if(achievement["prerequisite_achievement"] == a["id"]):
+                achievement["prerequisite_achievement"] = a["name"]
+            
+
+    return achievements
 
 def update_npc(data):
  
