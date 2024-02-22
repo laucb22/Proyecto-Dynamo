@@ -1,34 +1,28 @@
 <div class="container">
     <div class="row">
-        <div class="col text-center">
-            <img src="../../assets/achievements.png">
+        <div class="col text-center mt-3">
+          <img src="../../assets/achievements.png">
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col" id="table">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Display on collections tab before earned</th>
-                        <th scope="col">Prerequisite achievement</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
+                        <div class="row d-flex flex-row justify-content-around gap-3 encabezados align-items-center pe-0 mb-3 mt-5">
+                            <div class="col-1 me-5 pe-5 hueco"></div>
+                            <div class="card encabezado col-2">Name  </div>
+                            <div class="card encabezado col">Description</div>
+                            <div class="card encabezado col">Display on collections tab before earned</div>
+                            <div class="card encabezado col-2">Prerequisite achievement</div>
+                        </div>
                 <tbody>
-                    <tr *ngFor="let achievement of achievements">
-                        <th>
-                            <img height="100" [src] = "achievement.img" alt="">
-                        </th>
-                        <td>{{achievement.name}}</td>
-                        <td>{{achievement.description}}</td>
-                        <td>{{achievement['display_on_collections_tab_before_earned']}}</td>
-                        <td>{{achievement['prerequisite_achievement']}}</td>
-                        <td></td>
-                        <td></td>
+                    <tr class="col-12" *ngFor="let achievement of achievements">
+                        <div class="row card register my-2 p-3 d-flex flex-row justify-content-around align-items-center">
+                                <img class="card-img col-3" [src]="achievement.img" alt="{{achievement.name}} Image">
+                                <h3 class="col-2">{{achievement.name}}</h3>
+                                <h3 class="col-3 ">{{achievement.description}}</h3>
+                                <h3 class="col-3">{{achievement['display_on_collections_tab_before_earned']}}</h3>
+                                <h3 class="col-1">{{achievement['prerequisite_achievement']}}</h3>
+                        </div>
                     </tr>
                 </tbody>
             </table>

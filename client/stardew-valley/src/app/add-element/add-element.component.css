@@ -12,10 +12,19 @@
     background-size: 150px;
 }
 
-h2{
+h2, input[type=text], .form-label, .form-select{
     font-family: 'StardewValley';
 }
 
+input[type=text]{
+    font-size: x-large;
+}
+.form-label{
+    font-size: xx-large;
+}
+.form-select{
+    font-size: x-large;
+}
 #title{
     font-size: 10ch;
 }

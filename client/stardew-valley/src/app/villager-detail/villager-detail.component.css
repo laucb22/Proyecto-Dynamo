@@ -20,3 +20,22 @@ p{
 #title{
     font-size: 10ch;
 }
+
+.details{
+    height:100%;
+}
+
+
+.avatar-box{
+    background-image: url('./../../assets/villager-picture.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.name{
+    background-image: url('./../../assets/villager-name.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
