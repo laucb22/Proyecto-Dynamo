@@ -50,8 +50,11 @@ export class AddElementComponent implements OnInit{
         },
         (error) => {
           console.error('API Error:', error);
+          
         }
       );
+    } else{
+      console.log(value)
     }
   }
 
@@ -143,11 +146,12 @@ export class AddElementComponent implements OnInit{
       data.relationships = " "
       data.img = " "
       data.start_location = "Never"
+      data.birthday = data.month + " " + data.day
     } else{
       data.hat_earned = 0
       data.img = " "
     }
-    
+    console.log(data)
     if(confirm("Are you sure you want to add this item?")){
       this.api.insertElement(data).subscribe(
         (response) => {

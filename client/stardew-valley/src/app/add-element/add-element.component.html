@@ -114,11 +114,10 @@
             <input type="text" maxlength="20" class="form-control" name="home_region" [(ngModel)]="vilForm.value.home_region" required>
         </div>
         <div class="mb-3">
-            <label for="birthday" class="form-label">Birthday:</label>
-            <input type="text" maxlength="20" class="form-control" name="birthday" [(ngModel)]="vilForm.value.birthday" required>
+
             
             <label for="month" class="form-label">Month:</label>
-            <select class="form-select" id="month" required [(ngModel)]="defaultMonth" name="month">
+            <select class="form-select" id="month" required [(ngModel)]="vilForm.value.month" name="month">
               <option value="" disabled selected>When were they born?</option>
               <option value="spring">spring</option>
               <option value="summer">summer</option>
