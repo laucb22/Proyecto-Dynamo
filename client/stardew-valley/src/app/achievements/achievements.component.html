@@ -10,9 +10,9 @@
                 <div class="row d-flex flex-row justify-content-around gap-3 encabezados align-items-center pe-0 mb-3 mt-5">
                     <div class="card encabezado col-1">Icon</div>
                     <div class="card encabezado col-2">Name</div>
-                    <div class="card encabezado col-2">Description</div>
-                    <div class="card encabezado col-3">Display on collections tab before earned</div>
-                    <div class="card encabezado col-2">Prerequisite achievement</div>
+                    <div class="card encabezado col-3">Description</div>
+                    <div class="card encabezado col-2">Display before earned</div>
+                    <div class="card encabezado col-3">Prerequisite achievement</div>
                 </div>
                 <tbody>
                     <tr class="col-12" *ngFor="let achievement of achievements">
@@ -20,8 +20,8 @@
                                 <img class="card-img col-3" [src]="achievement.img" alt="{{achievement.name}} Image">
                                 <h3 class="col-2">{{achievement.name}}</h3>
                                 <h3 class="col-3">{{achievement.description}}</h3>
-                                <h3 class="col-3">{{achievement.display_on_collections_tab_before_earned | displayBeforeEarned }}</h3>
-                                <h3 class="col-1">{{achievement.prerequisite_achievement | preAchievement}}</h3>
+                                <h3 class="col-2">{{achievement.display_on_collections_tab_before_earned | displayBeforeEarned }}</h3>
+                                <h3 class="col-2">{{achievement.prerequisite_achievement | preAchievement}}</h3>
                         </div>
                     </tr>
                 </tbody>
