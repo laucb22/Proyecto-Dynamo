@@ -79,3 +79,13 @@ body {
   height: 100%;
   z-index: -100;
 }
+
+input[type=text], input[type=number], input[type=url]{
+  font-size: x-large;
+}
+.form-label{
+  font-size: xx-large;
+}
+.form-select{
+  font-size: x-large;
+}

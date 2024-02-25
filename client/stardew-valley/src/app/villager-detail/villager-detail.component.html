@@ -22,46 +22,84 @@
         <div class="row g-0">
             <div class="col">
               <div class="card-body"> 
-                <div class="row">
-                  <div class="col">
-                      <p class="card-text">Age:
-                        <span [hidden]="editing"> {{villager.age}}</span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
-                      <p class="card-text">Manners:
-                        <span [hidden]="editing"> {{villager.manners}}</span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
-                      <p class="card-text">Personality:
-                        <span [hidden]="editing"> {{villager.social_anxiety}}</span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
-                      <p class="card-text">Optimism:
-                        <span [hidden]="editing"> <img [src]="optimismImg" class="img-fluid rounded-start" alt="{{villager.optimism}}"></span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
+                <form #editNpcForm="ngForm" ngNativeValidate (ngSubmit)= "submitElement(editNpcForm.value, false)" class="p-4 rounded">
+                  <div class="row">
+                    <div class="col">
+                        <p class="card-text">Age:
+                          <span [hidden]="editing"> {{villager.age}}</span>
+                          <select [hidden]="!editing" class="form-select" id="age" required [(ngModel)]="villager.age" name="age">
+                            <option value="" disabled selected>How old are they?</option>
+                            <option value="adult">adult</option>
+                            <option value="teen">teen</option>
+                            <option value="child">child</option>
+                          </select>
+                        </p>
+                        <p class="card-text">Manners:
+                          <span [hidden]="editing"> {{villager.manners}}</span>
+                          <select [hidden]="!editing" class="form-select" id="manners" required [(ngModel)]="villager.manners" name="manners">
+                            <option value="" disabled selected>How do they behave?</option>
+                            <option value="rude">rude</option>
+                            <option value="polite">polite</option>
+                            <option value="neutral">neutral</option>
+                          </select>
+                        </p>
+                        <p class="card-text">Personality:
+                          <span [hidden]="editing"> {{villager.social_anxiety}}</span>
+                          <select [hidden]="!editing" class="form-select" id="social_anxiety" required [(ngModel)]="villager.social_anxiety" name="social_anxiety">
+                            <option value="" disabled selected>Select a personality</option>
+                            <option value="outgoing">outgoing</option>
+                            <option value="neutral">neutral</option>
+                            <option value="shy">shy</option>
+                          </select> 
+                        </p>
+                        <p class="card-text">Optimism:
+                          <span [hidden]="editing"> <img [src]="optimismImg" class="img-fluid rounded-start" alt="{{villager.optimism}}"></span>
+                          <select [hidden]="!editing" class="form-select" id="optimism" required [(ngModel)]="villager.optimism" name="optimism">
+                            <option value="" disabled selected>What's their mindset?</option>
+                            <option value="positive">positive</option>
+                            <option value="neutral">neutral</option>
+                            <option value="negative">negative</option>
+                          </select>
+                        </p>
+                    </div>
+                    <div class="col details">
+                        <p class="card-text">Gender:
+                          <span [hidden]="editing"> {{villager.gender}}</span>
+                          <select [hidden]="!editing" class="form-select" id="gender" required [(ngModel)]="villager.gender" name="gender">
+                            <option value="" disabled selected>Select a gender</option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                            <option value="undefined">unknown</option>
+                          </select>
+                        </p>
+                        
+                        <p class="card-text">Love interest:
+                          <span [hidden]="editing"> {{villager.love_interest | isNull}}</span>
+                          <select [hidden]="!editing" class="form-select" id="love_interest" required [(ngModel)]="villager.love_interest" name="love_interest">
+                            <option value="" disabled selected>Choose a lover</option>
+                            <option *ngFor="let name of names" value="name">{{name}}</option>
+                          </select>
+                        </p>
+                        <p class="card-text">Home region:
+                          <span [hidden]="editing"> {{villager.home_region}}</span>
+                          <input [hidden]="!editing" type="text" maxlength="20" class="form-control" name="home_region" [(ngModel)]="villager.home_region" required>
+                        </p>
+                        <p class="card-text">Birthday:
+                          <span [hidden]="editing"> <img [src]="monthImg" class="img-fluid rounded-start h-100" alt="{{month}}">
+                            {{day | isNull}}</span>
+                            <select [hidden]="!editing" class="form-select" id="month" required [(ngModel)]="month" name="month">
+                              <option value="" disabled selected>When were they born?</option>
+                              <option value="spring">spring</option>
+                              <option value="summer">summer</option>
+                              <option value="fall">fall</option>
+                              <option value="winter">winter</option>
+                            </select>
+                            <input [hidden]="!editing" type="number" min="1" max="28" class="form-control" name="day" [(ngModel)]="day" required>
+                        </p>
+                    </div>
                   </div>
-                  <div class="col details">
-                      <p class="card-text">Gender:
-                        <span [hidden]="editing"> {{villager.gender}}</span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
-                      
-                      <p class="card-text">Love interest:
-                        <span [hidden]="editing"> {{villager.love_interest | isNull}}</span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
-                      <p class="card-text">Home region:
-                        <span [hidden]="editing"> {{villager.home_region}}</span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
-                      <p class="card-text">Birthday:
-                        <span [hidden]="editing"> <img [src]="monthImg" class="img-fluid rounded-start h-100" alt="{{month}}">
-                          {{day | isNull}}</span>
-                        <input type="text" class="form-control" #title [hidden]="!editing"/>
-                      </p>
-                  </div>
-                </div>
+                </form>
+                
                 <div class="row justify-content-evenly">
                   <div class="col d-flex">
                     <form class="p-4 rounded" [hidden]="editing">
