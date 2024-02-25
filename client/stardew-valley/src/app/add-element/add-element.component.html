@@ -130,21 +130,21 @@
           
           </div>
           <div class="mb-3">
-            <label for="img" class="form-label">Image URL</label>
-            <input #imgValue type="url" [(ngModel)] ="vilForm.value.img" (change)="imgUploaded(imgValue.value)">
+            <label for="img" class="form-label">Image URL:</label>
+            <input #imgValue type="url" [(ngModel)] ="vilForm.value.img" (change)="imgUploaded(imgValue.value)" class="form-control">
             <img height="100px" width="100px" *ngIf="imgUrl && !wrongImgFormat" [src]="imgUrl" alt="">
             <div *ngIf="wrongImgFormat">
               <p class="text-danger">Error: Wrong image format, please use png or jpg</p>
             </div>
           </div>
-        <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-element-s.png"/></button>
+        <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-villager.png"/></button>
     </form> 
   </div>
 
   <div class="formContainer mt-3">
 
     <form #achForm="ngForm" ngNativeValidate (ngSubmit)= "submitElement(achForm.value, false)" class="p-4 rounded">
-      <img src="../../assets/insert-a-villager.png">
+      <img src="../../assets/insert-achievement.png">
         <div class="mb-3">
             <label for="achName" class="form-label">Name:</label>
             <input type="text" maxlength="20" class="form-control" id="name" name="name" [(ngModel)]="achForm.value.name" required>
@@ -168,9 +168,17 @@
                 <option *ngFor="let name of names" value="name">{{name}}</option>
             </select>
         </div>
+        <div class="mb-3">
+          <label for="img" class="form-label">Image URL:</label>
+          <input #imgValue type="url" [(ngModel)] ="achForm.value.img" (change)="imgUploaded(imgValue.value)" class="form-control">
+          <img height="100px" width="100px" *ngIf="imgUrl && !wrongImgFormat" [src]="imgUrl" alt="">
+          <div *ngIf="wrongImgFormat">
+            <p class="text-danger">Error: Wrong image format, please use png or jpg</p>
+          </div>
+        </div>
         <input type="hidden" [(ngModel)]="achForm.value.hat_earned" value=" ">
         <input type="hidden" [(ngModel)]="achForm.value.type" value="achievement">
-        <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-element-s.png"/></button>
+        <button style="padding: 0" type="submit"><img id="btn-add" style="height: 50px;" src="../../assets/add-achievement.png"/></button>
     </form> 
   </div>
 </div>

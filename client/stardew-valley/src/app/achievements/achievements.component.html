@@ -19,9 +19,9 @@
                         <div class="row card register my-2 p-3 d-flex flex-row justify-content-around align-items-center">
                                 <img class="card-img col-3" [src]="achievement.img" alt="{{achievement.name}} Image">
                                 <h3 class="col-2">{{achievement.name}}</h3>
-                                <h3 class="col-3 ">{{achievement.description}}</h3>
-                                <h3 class="col-3">{{achievement['display_on_collections_tab_before_earned']}}</h3>
-                                <h3 class="col-1">{{achievement['prerequisite_achievement']}}</h3>
+                                <h3 class="col-3">{{achievement.description}}</h3>
+                                <h3 class="col-3">{{achievement.display_on_collections_tab_before_earned | displayBeforeEarned }}</h3>
+                                <h3 class="col-1">{{achievement.prerequisite_achievement}}</h3>
                         </div>
                     </tr>
                 </tbody>

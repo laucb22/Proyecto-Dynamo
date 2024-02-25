@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AddElementComponent } from './add-element/add-element.component';
 import { MyDatablePipe } from './custom.datablepipe';
 import { VillagerDetailComponent } from './villager-detail/villager-detail.component';
+import { MyDisplayBeforeEarnedPipe } from './custom.displaybeforeearnedpipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { VillagerDetailComponent } from './villager-detail/villager-detail.compo
     FooterComponent,
     AddElementComponent,
     MyDatablePipe,
-    VillagerDetailComponent
+    VillagerDetailComponent,
+    MyDisplayBeforeEarnedPipe
   ],
   imports: [
     BrowserModule,
