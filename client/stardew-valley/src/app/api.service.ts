@@ -33,4 +33,16 @@ export class ApiService {
     return this.http.get<any[]>("http://localhost:5000/getRandomNpc")
   }
 
+  getFilteredNpcs(filters: any): Observable<any[]>{
+    return this.http.post<any[]>("http://localhost:5000/getFilteredNpcs", filters)
+  }
+
+  deleteNpc(name: any): Observable<any[]>{
+    return this.http.delete<any[]>("http://localhost:5000/deleteNpc", {body: {name: name}})
+  } 
+
+  deleteAchievement(name: any): Observable<any[]>{
+    return this.http.delete<any[]>("http://localhost:5000/deleteAchievement", {body: {name: name}})
+  }
+
 }

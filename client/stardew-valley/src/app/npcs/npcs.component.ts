@@ -20,4 +20,10 @@ export class NpcsComponent {
   refresh(){
     window.location.reload();
   }
+
+  applyFilters(filters: any){
+    this.api.getFilteredNpcs(filters).subscribe((data: any[]) => {
+      this.npcs = data;
+    })
+  }
 }
