@@ -2,7 +2,7 @@
     margin-bottom: 10%;
 }
 
-.card {
+.card, .btn {
     border-image: url("https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png");
     border-image-slice: 20;
     border-image-width: 20;
@@ -29,7 +29,7 @@ p{
 }
 
 
-.avatar-box{
+.avatar-box, .btn{
     background-image: url('./../../assets/villager-picture.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -43,7 +43,36 @@ p{
     background-position: center; 
 }
 
-#btn-add:hover{
-    transition-delay:0.01s;
-    border: 2px solid;
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+body {
+  background: orange;
+}
+
+.btn {
+    font-size: 1.2em;
+    font-family: 'Press Start 2P', cursive;
+    width: 100%;
+    height: 100%;
+  }
+  
+.btn:hover {
+  transform: scale(0.96);
+}
+
+.btn:active {
+  top: 5px;
+  box-shadow: 
+    -4px 2px 1px 1px grey,
+    -4px -2px 1px 1px lightgray,
+    4px 0px 1px 1px lightgray; 
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  left: -2.5%;
+  width: 105%;
+  height: 100%;
+  z-index: -100;
 }
