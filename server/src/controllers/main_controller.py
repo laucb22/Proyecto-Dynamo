@@ -11,6 +11,9 @@ STARDEW = DB.Table("StardewValley")
 
 def add_element(data):
 
+    if data["type"] == "achievement":
+        data["id"] = get_new_achievement_id()
+
     if(isinstance(data, list)):
         for element in data:
             STARDEW.put_item(
@@ -96,7 +99,6 @@ def delete_achievement(name_achievement):
     return response
 
 def get_achievements():
-    
     response = STARDEW.query(
         KeyConditionExpression=Key("type").eq("achievement")
     )
@@ -104,8 +106,11 @@ def get_achievements():
     achievements = response["Items"]
     for achievement in achievements:
         for a in achievements:
-            if(achievement["prerequisite_achievement"] == a["id"]):
-                achievement["prerequisite_achievement"] = a["name"]
+            try:
+                if(int(achievement["prerequisite_achievement"]) == int(a["id"])):
+                    achievement["prerequisite_achievement"] = a["name"]
+            except:
+                print("not a parseable value")
             
 
     return achievements
@@ -174,3 +179,14 @@ def get_specific_npc(name):
     )
 
     return npc["Item"]
+
+def get_new_achievement_id():
+    achievements = get_achievements()
+
+    maxId = 0
+    for achievement in achievements:
+        if maxId < int(achievement["id"]):
+            maxId = int(achievement["id"])
+    
+    return maxId + 1
+

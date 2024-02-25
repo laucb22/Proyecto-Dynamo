@@ -11,6 +11,7 @@ import { flush } from '@angular/core/testing';
 export class AddElementComponent implements OnInit{
   constructor(private api: ApiService, private toastr: ToastrService){}
   names: any[] = []
+  achievements: any[] = []
   wrongFormat:boolean = false
   isNotComplete: boolean = false
   fileContent:string = "";
@@ -33,6 +34,9 @@ export class AddElementComponent implements OnInit{
   ngOnInit(): void {
       this.api.getNpcNames().subscribe((data: any[]) => {
         this.names = data
+      })
+      this.api.getAchievements().subscribe((data: any[]) => {
+        this.achievements = data
       })
   }
 
@@ -146,7 +150,6 @@ export class AddElementComponent implements OnInit{
     data.type = isNpc ? "npc" : "achievement";
     if(data.type == "npc"){
       data.relationships = " "
-      data.img = " "
       data.start_location = "Town"
       data.birthday = data.month + " " + data.day
     } else{
