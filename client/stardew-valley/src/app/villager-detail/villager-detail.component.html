@@ -33,11 +33,11 @@
                   </div>
                   <div class="col details">
                       <p class="card-text">Gender: {{villager.gender}}</p>
-                      <p class="card-text">Love interest: {{villager.love_interest}}</p>
+                      <p class="card-text">Love interest: {{villager.love_interest | isNull}}</p>
                       <p class="card-text">Home region: {{villager.home_region}}</p>
                       <p class="card-text">Birthday: 
                         <img [src]="monthImg" class="img-fluid rounded-start h-100" alt="{{month}}">
-                        {{day}}</p>
+                        {{day | isNull}}</p>
                   </div>
                 </div>
                 <div class="row justify-content-evenly">
@@ -48,7 +48,7 @@
                   </div>
                   <div class="col">
                     <form  class="p-4 rounded">
-                      <button type="submit" class="btn">Delete</button>
+                      <button type="submit" class="btn" (click)="deleteVillager(villager.name)">Delete</button>
                     </form>
                   </div>
                 </div>

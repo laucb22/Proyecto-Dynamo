@@ -14,7 +14,7 @@
         <div class="col">
           <label for="gender" class="form-label">Gender:</label>
           <select class="form-select" id="gender" required [(ngModel)]="filters.value.gender" name="gender">
-              <option value="" disabled selected>Choose a gender</option>
+              <option value="" selected></option>
               <option value="male">male</option>
               <option value="female">female</option>
               <option value="unknown">unknown</option>
@@ -23,22 +23,23 @@
         <div class="col">
           <label for="manners" class="form-label">Manners:</label>
           <select class="form-select" id="manners" required [(ngModel)]="filters.value.manners" name="manners">
-              <option value="" disabled selected>How do they act?</option>
+              <option value="" selected></option>
               <option value="rude">rude</option>
               <option value="neutral">neutral</option>
               <option value="polite">polite</option>
           </select>
         </div>
         <div class="col">
-          <label for="dateable" class="form-label">Dateable:</label>
+          <label for="datable" class="form-label">Dateable:</label>
           <select class="form-select" id="datable" required [(ngModel)]="filters.value.datable" name="datable">
-              <option value="" disabled selected>Are they dateable?</option>
-              <option value="yes">yes</option>
-              <option value="no">no</option>
+              <option value="" selected></option>
+              <option value="datable">yes</option>
+              <option value="not-datable">no</option>
           </select>
         </div>
         <div class="col">
-          <button type="submit" class="btn btn-danger"></button>
+          <button type="submit" class="btn btn-danger">Filter</button>
+          <button class="btn btn-primary" (click)="clearFilters()">Clear Filters</button>
         </div>
       </form>
     </div>
