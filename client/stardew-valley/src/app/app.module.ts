@@ -19,6 +19,8 @@ import { AddElementComponent } from './add-element/add-element.component';
 import { MyDatablePipe } from './custom.datablepipe';
 import { VillagerDetailComponent } from './villager-detail/villager-detail.component';
 import { MyDisplayBeforeEarnedPipe } from './custom.displaybeforeearnedpipe';
+import { MyPreAchievementPipe } from './custom.prechievementpipe';
+import { MyIsNullPipe } from './custom.isnullpipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { MyDisplayBeforeEarnedPipe } from './custom.displaybeforeearnedpipe';
     AddElementComponent,
     MyDatablePipe,
     VillagerDetailComponent,
-    MyDisplayBeforeEarnedPipe
+    MyDisplayBeforeEarnedPipe,
+    MyPreAchievementPipe,
+    MyIsNullPipe
   ],
   imports: [
     BrowserModule,
