@@ -130,7 +130,7 @@
           
           </div>
           <div class="mb-3">
-            <label for="img" class="form-label">Image URL</label>
+            <label for="img" class="form-label">Image URL:</label>
             <input #imgValue type="url" [(ngModel)] ="vilForm.value.img" (change)="imgUploaded(imgValue.value)" class="form-control">
             <img height="100px" width="100px" *ngIf="imgUrl && !wrongImgFormat" [src]="imgUrl" alt="">
             <div *ngIf="wrongImgFormat">
@@ -167,6 +167,14 @@
                 <option value="" disabled selected>Prerequisite achievement</option>
                 <option *ngFor="let name of names" value="name">{{name}}</option>
             </select>
+        </div>
+        <div class="mb-3">
+          <label for="img" class="form-label">Image URL:</label>
+          <input #imgValue type="url" [(ngModel)] ="achForm.value.img" (change)="imgUploaded(imgValue.value)" class="form-control">
+          <img height="100px" width="100px" *ngIf="imgUrl && !wrongImgFormat" [src]="imgUrl" alt="">
+          <div *ngIf="wrongImgFormat">
+            <p class="text-danger">Error: Wrong image format, please use png or jpg</p>
+          </div>
         </div>
         <input type="hidden" [(ngModel)]="achForm.value.hat_earned" value=" ">
         <input type="hidden" [(ngModel)]="achForm.value.type" value="achievement">
