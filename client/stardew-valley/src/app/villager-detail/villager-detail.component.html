@@ -33,6 +33,7 @@
                   </div>
                   <div class="col details">
                       <p class="card-text">Gender: {{villager.gender}}</p>
+                      <input type="text" #title [hidden]="!editing"/>
                       <p class="card-text">Love interest: {{villager.love_interest | isNull}}</p>
                       <p class="card-text">Home region: {{villager.home_region}}</p>
                       <p class="card-text">Birthday: 
@@ -43,7 +44,7 @@
                 <div class="row justify-content-evenly">
                   <div class="col d-flex">
                     <form  class="p-4 rounded">
-                        <button type="submit"  class="btn">Edit</button>
+                        <button type="submit" class="btn" (click)="editing = !editing">Edit</button>
                     </form>
                   </div>
                   <div class="col">

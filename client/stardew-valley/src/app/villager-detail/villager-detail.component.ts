@@ -11,6 +11,7 @@ export class VillagerDetailComponent implements OnInit {
   name: any;
   villager: any;
   isDatable = false;
+  editing = false;
   day = "";
   month = "";
   monthImg = "";
