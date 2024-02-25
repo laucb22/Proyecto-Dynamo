@@ -13,12 +13,23 @@ export class AchievementsComponent {
   achievements: any[] = []
 
   ngOnInit() {
-    this.api.getAchievements().subscribe((data: any[]) => {
-      this.achievements = data
-    })
+    this.getAchievements()
   }
 
   refresh(){
     window.location.reload();
   }
+
+  filterAchievements(data: any){
+    this.api.getFilteredAchievements(data).subscribe((data: any[]) => {
+      this.achievements = data
+    })
+  }
+
+  getAchievements(){
+    this.api.getAchievements().subscribe((data: any[]) => {
+      this.achievements = data
+    })
+  }
+
 }

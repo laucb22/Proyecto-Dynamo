@@ -89,12 +89,14 @@ export class VillagerDetailComponent implements OnInit {
 
   submitElement(data: any, isNpc: boolean){
     console.log(data)
-      data.relationships = " "
-      data.start_location = "Town"
-      data.birthday = data.month + " " + data.day
+    data.name = this.villager.name
+    data.datable = this.villager.datable
+    data.relationships = " "
+    data.start_location = "Town"
+    data.birthday = data.month + " " + data.day
     console.log(data)
     if(confirm("Are you sure you want to edit this villager?")){
-      this.apiService.insertElement(data).subscribe(
+      this.apiService.editNpc(data).subscribe(
         (response) => {
           console.log(response);
         }, (error) => {

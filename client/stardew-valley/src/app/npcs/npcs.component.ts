@@ -13,9 +13,7 @@ export class NpcsComponent {
   npcs: any[] = []
 
   ngOnInit() {
-    this.api.getNpcs().subscribe((data: any[]) => {
-      this.npcs = data
-    })
+    this.getNpcs()
   }
 
   refresh(){
@@ -37,9 +35,9 @@ export class NpcsComponent {
     })
   }
 
-  clearFilters(){
+  getNpcs(){
     this.api.getNpcs().subscribe((data: any[]) => {
-      this.npcs = data;
+      this.npcs = data
     })
   }
 }

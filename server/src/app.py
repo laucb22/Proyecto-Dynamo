@@ -55,3 +55,8 @@ def get_random_npc():
 @app.route("/getOneNpc/<name>", methods=["GET"])
 def get_specific_npc(name):
     return mc.get_specific_npc(name)
+
+@app.route("/getFilteredAchievements", methods=["POST"])
+def get_filtered_achievements():
+    req = request.json
+    return mc.get_filtered_achievements(req)

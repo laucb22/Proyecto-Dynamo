@@ -98,6 +98,7 @@
                         </p>
                     </div>
                   </div>
+                  <button [hidden]="!editing" type="submit" class="btn">Save</button>
                 </form>
                 
                 <div class="row justify-content-evenly">
@@ -105,9 +106,8 @@
                     <form class="p-4 rounded" [hidden]="editing">
                         <button type="submit" class="btn" (click)="editing = !editing">Edit</button>
                     </form>
-                    <form class="p-4 rounded" [hidden]="!editing">
-                      <button type="submit" class="btn">Save</button>
-                    </form>
+                     
+
                   </div>
                   <div class="col d-flex">
                     <form class="p-4 rounded" [hidden]="editing">
