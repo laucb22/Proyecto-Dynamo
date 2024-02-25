@@ -30,15 +30,16 @@
           </select>
         </div>
         <div class="col">
-          <label for="dateable" class="form-label">Dateable:</label>
+          <label for="datable" class="form-label">Dateable:</label>
           <select class="form-select" id="datable" required [(ngModel)]="filters.value.datable" name="datable">
               <option value="" disabled selected>Are they dateable?</option>
-              <option value="yes">yes</option>
-              <option value="no">no</option>
+              <option value="datable">yes</option>
+              <option value="not-datable">no</option>
           </select>
         </div>
         <div class="col">
-          <button type="submit" class="btn btn-danger"></button>
+          <button type="submit" class="btn btn-danger">Filter</button>
+          <button class="btn btn-primary" (click)="clearFilters(filters.value)">Clear Filters</button>
         </div>
       </form>
     </div>

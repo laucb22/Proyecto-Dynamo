@@ -9,6 +9,7 @@ import { ApiService } from '../api.service';
 export class NpcsComponent {
   constructor(private api: ApiService){}
 
+
   npcs: any[] = []
 
   ngOnInit() {
@@ -23,6 +24,12 @@ export class NpcsComponent {
 
   applyFilters(filters: any){
     this.api.getFilteredNpcs(filters).subscribe((data: any[]) => {
+      this.npcs = data;
+    })
+  }
+
+  clearFilters(filters: any){
+    this.api.getNpcs().subscribe((data: any[]) => {
       this.npcs = data;
     })
   }

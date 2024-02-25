@@ -46,6 +46,8 @@ def get_npcs():
     return npcs["Items"]
 
 def get_filtered_npcs(filters: dict):
+
+    print(filters)
     keys = list(filters.keys())
     values = list(filters.values())
     if len(keys) == 1:
@@ -54,10 +56,13 @@ def get_filtered_npcs(filters: dict):
             FilterExpression=Attr(keys[0]).eq(values[0])
         )["Items"]
     elif len(keys) == 2:
+        print(values[0] + " " + values[1])
+        print(keys[0] + " " + keys[1])
         npcs = STARDEW.query(
             KeyConditionExpression=Key("type").eq("npc"),
             FilterExpression=Attr(keys[0]).eq(values[0]) & Attr(keys[1]).eq(values[1])
         )["Items"]
+        print(npcs)
     elif len(keys) == 3:
         npcs = STARDEW.query(
             KeyConditionExpression=Key("type").eq("npc"),
