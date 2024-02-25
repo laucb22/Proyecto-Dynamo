@@ -24,32 +24,59 @@
               <div class="card-body"> 
                 <div class="row">
                   <div class="col">
-                      <p class="card-text">Age: {{villager.age}}</p>
-                      <p class="card-text">Manners: {{villager.manners}}</p>
-                      <p class="card-text">Personality: {{villager.social_anxiety}}</p>
-                      <p class="card-text">Optimism: 
-                        <img [src]="optimismImg" class="img-fluid rounded-start" alt="{{villager.optimism}}">
+                      <p class="card-text">Age:
+                        <span [hidden]="editing"> {{villager.age}}</span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
+                      </p>
+                      <p class="card-text">Manners:
+                        <span [hidden]="editing"> {{villager.manners}}</span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
+                      </p>
+                      <p class="card-text">Personality:
+                        <span [hidden]="editing"> {{villager.social_anxiety}}</span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
+                      </p>
+                      <p class="card-text">Optimism:
+                        <span [hidden]="editing"> <img [src]="optimismImg" class="img-fluid rounded-start" alt="{{villager.optimism}}"></span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
                       </p>
                   </div>
                   <div class="col details">
-                      <p class="card-text">Gender: {{villager.gender}}</p>
-                      <input type="text" #title [hidden]="!editing"/>
-                      <p class="card-text">Love interest: {{villager.love_interest | isNull}}</p>
-                      <p class="card-text">Home region: {{villager.home_region}}</p>
-                      <p class="card-text">Birthday: 
-                        <img [src]="monthImg" class="img-fluid rounded-start h-100" alt="{{month}}">
-                        {{day | isNull}}</p>
+                      <p class="card-text">Gender:
+                        <span [hidden]="editing"> {{villager.gender}}</span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
+                      </p>
+                      
+                      <p class="card-text">Love interest:
+                        <span [hidden]="editing"> {{villager.love_interest | isNull}}</span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
+                      </p>
+                      <p class="card-text">Home region:
+                        <span [hidden]="editing"> {{villager.home_region}}</span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
+                      </p>
+                      <p class="card-text">Birthday:
+                        <span [hidden]="editing"> <img [src]="monthImg" class="img-fluid rounded-start h-100" alt="{{month}}">
+                          {{day | isNull}}</span>
+                        <input type="text" class="form-control" #title [hidden]="!editing"/>
+                      </p>
                   </div>
                 </div>
                 <div class="row justify-content-evenly">
                   <div class="col d-flex">
-                    <form  class="p-4 rounded">
+                    <form class="p-4 rounded" [hidden]="editing">
                         <button type="submit" class="btn" (click)="editing = !editing">Edit</button>
                     </form>
+                    <form class="p-4 rounded" [hidden]="!editing">
+                      <button type="submit" class="btn">Save</button>
+                    </form>
                   </div>
-                  <div class="col">
-                    <form class="p-4 rounded">
+                  <div class="col d-flex">
+                    <form class="p-4 rounded" [hidden]="editing">
                       <button type="submit" class="btn pt-2" (click)="deleteVillager(villager.name)">Delete</button>
+                    </form>
+                    <form class="p-4 rounded" [hidden]="!editing">
+                      <button type="submit" class="btn pt-2" (click)="editing = !editing">Cancel</button>
                     </form>
                   </div>
                 </div>
