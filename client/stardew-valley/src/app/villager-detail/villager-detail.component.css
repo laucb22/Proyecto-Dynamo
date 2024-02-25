@@ -42,3 +42,8 @@ p{
     background-repeat: no-repeat;
     background-position: center; 
 }
+
+#btn-add:hover{
+    transition-delay:0.01s;
+    border: 2px solid;
+}
