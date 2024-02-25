@@ -17,6 +17,10 @@ export class ApiService {
     return this.http.post<any[]>('http://localhost:5000/insert', data)
   }
 
+  editNpc(data: any): Observable<any[]>{
+    return this.http.put<any[]>("http://localhost:5000/updateNpc", data)
+  }
+
   getAchievements(): Observable<any[]>{
     return this.http.get<any[]>('http://localhost:5000/getAchievements')
   }
@@ -43,6 +47,10 @@ export class ApiService {
 
   deleteAchievement(name: any): Observable<any[]>{
     return this.http.delete<any[]>("http://localhost:5000/deleteAchievement", {body: {name: name}})
+  }
+
+  getFilteredAchievements(data: any): Observable<any[]>{
+    return this.http.post<any[]>("http://localhost:5000/getFilteredAchievements", data)
   }
 
 }

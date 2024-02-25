@@ -59,8 +59,6 @@ def get_filtered_npcs(filters: dict):
             FilterExpression=Attr(keys[0]).eq(values[0])
         )["Items"]
     elif len(keys) == 2:
-        print(values[0] + " " + values[1])
-        print(keys[0] + " " + keys[1])
         npcs = STARDEW.query(
             KeyConditionExpression=Key("type").eq("npc"),
             FilterExpression=Attr(keys[0]).eq(values[0]) & Attr(keys[1]).eq(values[1])
@@ -190,3 +188,13 @@ def get_new_achievement_id():
     
     return maxId + 1
 
+def get_filtered_achievements(req):
+    
+    filtered_achievements = []
+    achievements = get_achievements()
+    for achievement in achievements:
+        if req["needs_pre"] == "checked" and achievement["prerequisite_achievement"] != -1:
+            filtered_achievements.append(achievement)
+        elif req["needs_pre"] == "unchecked" and achievement["prerequisite_achievement"] == -1:
+            filtered_achievements.append(achievement)
+    return filtered_achievements

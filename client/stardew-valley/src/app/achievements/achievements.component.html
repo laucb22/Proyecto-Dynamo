@@ -5,6 +5,23 @@
         </div>
     </div>
     <div class="row">
+        <div class="col">
+            <form #filters="ngForm" (submit)="filterAchievements(filters.value)">
+                <label for="req">Does it have a prerequisite?</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="checked" [(ngModel)]="filters.value.needs_pre" name="needs_pre">
+                    <label class="form-check-label" for="req">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="unchecked" [(ngModel)]="filters.value.needs_pre" name="needs_pre">
+                    <label class="form-check-label" for="req">No</label>
+                </div>
+                <button type="submit" class="btn btn-danger">Filter</button>
+            </form>
+            <button (click)="getAchievements()">Clear filters</button>
+        </div>
+    </div>
+    <div class="row">
         <div class="col" id="table">
             <table class="table">
                 <div class="row d-flex flex-row justify-content-around gap-3 encabezados align-items-center pe-0 mb-3 mt-5">

@@ -32,43 +32,44 @@
           <div class="col d-flex">
             
             <div class="form-check">
-              <input type="radio" name="gender" value="male" data-icon='' [(ngModel)]="filters.value.gender"/>
+              <input type="radio" name="gender" value="male" data-icon=''required [(ngModel)]="filters.value.gender"/>
             </div>
             <div class="form-check">
-              <input type="radio" name="gender" value="female" data-icon='' [(ngModel)]="filters.value.gender"/>
+              <input type="radio" name="gender" value="female" data-icon='' required [(ngModel)]="filters.value.gender"/>
             </div>
             <div class="form-check">
-              <input type="radio" name="gender" value="undefined" data-icon='?' [(ngModel)]="filters.value.gender"/>
+              <input type="radio" name="gender" value="undefined" data-icon='?' required [(ngModel)]="filters.value.gender"/>
             </div>
           </div>
           <div class="col d-flex">
             
               <div class="form-check">
-                <input type="radio" name="manners" value="rude" data-icon='' [(ngModel)]="filters.value.manners"/>
+                <input type="radio" name="manners" value="rude" data-icon='' required [(ngModel)]="filters.value.manners"/>
               </div>
               <div class="form-check">
-                <input type="radio" name="manners" value="neutral" data-icon='' [(ngModel)]="filters.value.manners"/>
+                <input type="radio" name="manners" value="neutral" data-icon='' required [(ngModel)]="filters.value.manners"/>
               </div>
               <div class="form-check">
-                <input type="radio" name="manners" value="polite" data-icon='' [(ngModel)]="filters.value.manners"/>
+                <input type="radio" name="manners" value="polite" data-icon='' required [(ngModel)]="filters.value.manners"/>
               </div>
           </div>
           <div class="col d-flex">
             
               <div class="form-check">
-                <input type="radio" name="datable" value="datable" data-icon='' [(ngModel)]="filters.value.datable"/>
+                <input type="radio" name="datable" value="datable" data-icon='' required [(ngModel)]="filters.value.datable"/>
               </div>
               <div class="form-check">
-                <input type="radio" name="datable" value="not-datable" data-icon='' [(ngModel)]="filters.value.datable"/>
+                <input type="radio" name="datable" value="not-datable" data-icon='' required [(ngModel)]="filters.value.datable"/>
               </div>
           </div>
           
           <div class="col">
-            <button type="submit" class="btn btn-danger h-50 w-100">Filter</button>
-            <button class="btn btn-primary h-50 w-100" (click)="clearFilters()">Clear Filters</button>
+            <button type="submit" class="btn btn-danger h-100 w-100">Filter</button>
+            
           </div>
         </div>
       </form>
+      <button class="btn btn-primary" (click)="getNpcs()">Clear Filters</button>
     </div>
     <div class="row">
       <div class="col-4 col-md-3 col-lg-2" *ngFor="let npc of npcs">

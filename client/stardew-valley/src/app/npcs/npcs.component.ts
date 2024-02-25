@@ -13,9 +13,7 @@ export class NpcsComponent {
   npcs: any[] = []
 
   ngOnInit() {
-    this.api.getNpcs().subscribe((data: any[]) => {
-      this.npcs = data
-    })
+    this.getNpcs()
   }
 
   refresh(){
@@ -23,14 +21,23 @@ export class NpcsComponent {
   }
 
   applyFilters(filters: any){
+    if(filters.gender == ""){
+      delete(filters.gender)
+    }
+    if(filters.manners == ""){
+      delete(filters.manners)
+    }
+    if(filters.datable == ""){
+      delete(filters.genders)
+    }
     this.api.getFilteredNpcs(filters).subscribe((data: any[]) => {
       this.npcs = data;
     })
   }
 
-  clearFilters(){
+  getNpcs(){
     this.api.getNpcs().subscribe((data: any[]) => {
-      this.npcs = data;
+      this.npcs = data
     })
   }
 }

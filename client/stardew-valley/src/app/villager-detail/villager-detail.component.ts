@@ -8,6 +8,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./villager-detail.component.css']
 })
 export class VillagerDetailComponent implements OnInit {
+  names: any[] = []
   name: any;
   villager: any;
   isDatable = false;
@@ -21,6 +22,9 @@ export class VillagerDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
+    this.apiService.getNpcNames().subscribe((data: any[]) => {
+      this.names = data
+    })
     this.name = this.route.snapshot.paramMap.get('name');
     console.log(this.name);
     this.apiService.getOneNpc(this.name).subscribe(
@@ -81,5 +85,24 @@ export class VillagerDetailComponent implements OnInit {
       )
     }
       
+  }
+
+  submitElement(data: any, isNpc: boolean){
+    console.log(data)
+    data.name = this.villager.name
+    data.datable = this.villager.datable
+    data.relationships = " "
+    data.start_location = "Town"
+    data.birthday = data.month + " " + data.day
+    console.log(data)
+    if(confirm("Are you sure you want to edit this villager?")){
+      this.apiService.editNpc(data).subscribe(
+        (response) => {
+          console.log(response);
+        }, (error) => {
+          console.log(error)
+        })
+    }
+    
   }
 }
