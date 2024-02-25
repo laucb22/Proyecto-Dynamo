@@ -23,6 +23,15 @@ export class NpcsComponent {
   }
 
   applyFilters(filters: any){
+    if(filters.gender == ""){
+      delete(filters.gender)
+    }
+    if(filters.manners == ""){
+      delete(filters.manners)
+    }
+    if(filters.datable == ""){
+      delete(filters.genders)
+    }
     this.api.getFilteredNpcs(filters).subscribe((data: any[]) => {
       this.npcs = data;
     })
