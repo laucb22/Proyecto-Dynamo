@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class VillagerDetailComponent implements OnInit {
   genderImg = "";
   optimismImg = "";
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
@@ -64,5 +64,21 @@ export class VillagerDetailComponent implements OnInit {
         console.error('Error al obtener los detalles del villager', error);
       }
     );
+  }
+
+  deleteVillager(name: string){
+    if(confirm("Are you sure you want to delete this villager?")){
+      this.apiService.deleteNpc(name).subscribe(
+        (response) => {
+          console.log("Successful: " + response)
+          this.router.navigate(["/npcs"])
+          
+        },
+        (error) => {
+          console.log("API Error" + error)
+        }
+      )
+    }
+      
   }
 }

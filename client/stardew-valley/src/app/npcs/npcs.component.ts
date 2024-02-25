@@ -28,7 +28,7 @@ export class NpcsComponent {
     })
   }
 
-  clearFilters(filters: any){
+  clearFilters(){
     this.api.getNpcs().subscribe((data: any[]) => {
       this.npcs = data;
     })
