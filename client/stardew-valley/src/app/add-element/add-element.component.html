@@ -163,9 +163,9 @@
         </div>
         <div class="mb-3">
             <label for="prerequisite" class="form-label">Prerequisite achievement:</label>
-            <select class="form-select" id="prerequisite" required [(ngModel)]="defaulPrerequisite" name="prerequisite">
+            <select class="form-select" id="prerequisite_achievement" required [(ngModel)]="defaulPrerequisite" name="prerequisite_achievement">
                 <option value="" disabled selected>Prerequisite achievement</option>
-                <option *ngFor="let name of names" value="name">{{name}}</option>
+                <option *ngFor="let ach of achievements" [value]="ach.id">{{ach.name}}</option>
             </select>
         </div>
         <div class="mb-3">
