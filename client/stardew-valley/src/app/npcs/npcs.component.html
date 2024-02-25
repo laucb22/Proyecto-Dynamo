@@ -39,9 +39,10 @@
         </div>
         <div class="col">
           <button type="submit" class="btn btn-danger">Filter</button>
-          <button class="btn btn-primary" (click)="getNpcs()">Clear Filters</button>
+
         </div>
       </form>
+      <button class="btn btn-primary" (click)="getNpcs()">Clear Filters</button>
     </div>
     <div class="row">
       <div class="col-4 col-md-3 col-lg-2" *ngFor="let npc of npcs">
