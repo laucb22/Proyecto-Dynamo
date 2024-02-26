@@ -73,23 +73,31 @@ export class VillagerDetailComponent implements OnInit {
   }
 
   deleteVillager(name: string){
-    if(confirm("Are you sure you want to delete this villager?")){
+    swal.fire({
+      title: "Are yoy sure?",
+      text: "You are about to kick out a villager!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, kick'em out!"
+    }).then((result) =>{
+      if (result.isConfirmed){
       this.apiService.deleteNpc(name).subscribe(
         (response) => {
           console.log("Successful: " + response)
           swal.fire({
-            text: "This villager has moved out!",
+            text: "This villager has moved out! :(",
             icon: "success"
           });
           this.router.navigate(["/npcs"])
-          
         },
         (error) => {
           console.log("API Error" + error)
         }
       )
     }
-      
+  }); 
   }
 
   submitElement(data: any, isNpc: boolean){
@@ -100,17 +108,27 @@ export class VillagerDetailComponent implements OnInit {
     data.start_location = "Town"
     data.birthday = data.month + " " + data.day
     console.log(data)
-    if(confirm("Are you sure you want to edit this villager?")){
-      this.apiService.editNpc(data).subscribe(
-        (response) => {
-          console.log(response);
-          swal.fire({
-            text: "Changes submitted!",
-            icon: "success"
-          });
-        }, (error) => {
-          console.log(error)
-        })
-    }
+    swal.fire({
+      title: "Are you sure?",
+      text: "You are going to update a villager's data!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, go on!"
+    }).then((result) =>{
+      if (result.isConfirmed){
+        this.apiService.editNpc(data).subscribe(
+          (response) => {
+            console.log(response);
+            swal.fire({
+              text: "Changes submitted!",
+              icon: "success"
+            });
+          }, (error) => {
+            console.log(error)
+          })
+      }
+    }); 
   }
 }

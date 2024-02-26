@@ -49,6 +49,10 @@ export class AddElementComponent implements OnInit{
     if(window.confirm('Are sure you want to add this element?')){
       this.api.insertElement(value).subscribe(
         (response) => {
+          swal.fire({
+            text: "Element added successfully!",
+            icon: "success"
+          });
           // Refrescamos la página
           setTimeout(() => {
             window.location.reload();
@@ -73,20 +77,31 @@ export class AddElementComponent implements OnInit{
         const elementData = JSON.parse(this.fileContent);
         if(elementData){
           // Pedimos confirmación al usuario
-          if(window.confirm('Are sure you want to add this element(s)?')){
-            this.api.insertElement(elementData).subscribe(
-              (response) => {
-                // Refrescamos la página
-                setTimeout(() => {
-                  window.location.reload();
-                }, 1000);
-                console.log('API Response:', response);
-              },
-              (error) => {
-                console.error('API Error:', error);
-              }
-            );
-          }
+          swal.fire({
+            title: "Are you sure?",
+            text: "Do you really want to add the element(s)?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, go on!"
+          }).then((result) =>{
+            if (result.isConfirmed){
+              this.api.insertElement(elementData).subscribe(
+                (response) => {
+                  // Refrescamos la página
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 1000);
+                  console.log('API Response:', response);
+                },
+                (error) => {
+                  console.error('API Error:', error);
+                }
+              );
+            }
+          }); 
+
         } else {
           console.error('Not valid JSON file.');
         }
@@ -170,19 +185,26 @@ export class AddElementComponent implements OnInit{
       data.img = this.imgAUrl
     }
     console.log(data)
-    if(confirm("Are you sure you want to add this item?")){
+    swal.fire({
+      title: "Are you sure?",
+      text: "You are going to add a new element!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes!"
+    }).then((result) =>{
+      swal.fire({
+        text: "Element added successfully!",
+        icon: "success"
+      });
       this.api.insertElement(data).subscribe(
         (response) => {
           console.log(response);
-          swal.fire({
-            text: "Element added successfully!",
-            icon: "success"
-          });
         }, (error) => {
           console.log(error)
         })
-    }
-    
+    });
   }
 
 
