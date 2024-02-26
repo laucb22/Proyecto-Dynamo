@@ -70,7 +70,7 @@ export class AddElementComponent implements OnInit{
     if(this.fileContent){
       try {
         // Parseamos el contenido del archivo para que se envíe correctamente
-        const elementData = JSON.parse(this.fileContent);
+        const elementData = this.fileContent;
         if(elementData){
           // Pedimos confirmación al usuario
           if(window.confirm('Are sure you want to add this element(s)?')){
