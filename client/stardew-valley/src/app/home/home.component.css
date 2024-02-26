@@ -9,10 +9,48 @@
     overflow: hidden;
 }
 
-h2{
+h1{
+    color: aliceblue;
+}
+
+h2, button{
     font-family: 'StardewValley';
 }
 
 #title{
     font-size: 10ch;
+}
+
+.btn{
+    background-image: url('./../../assets/villager-picture.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-image: url("https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png");
+    border-image-slice: 20;
+    border-image-width: 20;
+    border-image-outset: 5;
+    border-image-repeat: round;
+    background-color: #ffa;
+    overflow: hidden;
+    font-size: xx-large;
+}
+.btn:hover {
+    transform: scale(0.96);
+}
+
+.btn:active {
+    top: 5px;
+    box-shadow: 
+    -4px 2px 1px 1px grey,
+    -4px -2px 1px 1px lightgray,
+    4px 0px 1px 1px lightgray; 
+}
+
+.btn::after {
+    position: absolute;
+    left: -2.5%;
+    width: 105%;
+    height: 100%;
+    z-index: -100;
 }

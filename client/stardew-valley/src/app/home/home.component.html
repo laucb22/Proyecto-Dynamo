@@ -2,20 +2,20 @@
     <div class="row">
         <div class="col">
             <h1 class="text-center">Guess today's villager's name! </h1>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-6 d-flex justify-content-center">
-            <div class="card p-3" style="width: 300px;" >
-                <img class="card-img-top" [src]="randomNpc.img" alt="{{randomNpc.name}} Image">
-                <div class="card-body">
-                  <h2 class="card-title text-center">Who is this?</h2>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card p-3" style="width: 300px;" >
+                    <img class="card-img-top" [src]="randomNpc.img" alt="{{randomNpc.name}} Image">
+                    <div class="card-body">
+                      <h2 class="card-title text-center">Who is this?</h2>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-              <button class="btn btn-danger" (click)="checkName(name)" *ngFor="let name of names">{{name}}</button>
+    </div>
+    <br>
+    <div class="row d-flex justify-content-center">
+        <div class="col-6 text-center justify-content-center">
+              <button class="btn w-50" (click)="checkName(name)" *ngFor="let name of names">{{name}}</button>
         </div>
     </div>
 </div>
