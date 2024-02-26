@@ -9,6 +9,12 @@ from boto3.dynamodb.conditions import Attr
 import random
 STARDEW = DB.Table("StardewValley")
 
+#
+# Pre:---
+# Post: Método para añadir un nuevo elemento en la base de datos. Comprueba si es un achievement para obtener
+# en caso afirmativo la id de logro nueva a procesar. Analiza si se trata de un único objeto o varios y los inserta.
+# @params: data
+#
 def add_element(data):
 
     if data["type"] == "achievement":
@@ -27,6 +33,10 @@ def add_element(data):
         return "Item added"
     
 
+#
+# Pre:---
+# Post: Método para obtener los únicamente nombres de los NPCs
+#
 def get_npc_names():
     
     names = []
@@ -40,6 +50,10 @@ def get_npc_names():
 
     return names
 
+#
+# Pre:---
+# Post: Función para la obtención de los NPCs. Busca por clave npc
+#
 def get_npcs():
     
     npcs = STARDEW.query(
@@ -48,9 +62,11 @@ def get_npcs():
 
     return npcs["Items"]
 
+#
+# Pre:---
+# Post 
+#
 def get_filtered_npcs(filters: dict):
-
-    print(filters)
     keys = list(filters.keys())
     values = list(filters.values())
     if len(keys) == 1:
@@ -63,7 +79,6 @@ def get_filtered_npcs(filters: dict):
             KeyConditionExpression=Key("type").eq("npc"),
             FilterExpression=Attr(keys[0]).eq(values[0]) & Attr(keys[1]).eq(values[1])
         )["Items"]
-        print(npcs)
     elif len(keys) == 3:
         npcs = STARDEW.query(
             KeyConditionExpression=Key("type").eq("npc"),
