@@ -108,10 +108,18 @@ export class AddElementComponent implements OnInit{
 
         } else {
           console.error('Not valid JSON file.');
+          swal.fire({
+            text: "Not valid JSON file!",
+            icon: "error"
+          });
         }
       } catch (error) {
         console.error('Couldn\'t analyze the JSON file: ', error);
         console.error('Not valid JSON file.');
+        swal.fire({
+          text: "Not valid JSON file!",
+          icon: "error"
+        });
       }
     }
   }
