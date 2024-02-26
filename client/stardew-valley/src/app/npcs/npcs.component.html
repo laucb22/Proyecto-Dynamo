@@ -1,14 +1,10 @@
 <div class="container">
-    <div class="row">
+    <div class="row mb-2">
       <div class="col text-center">
         <img src="../../assets/villagers.png">
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <h2>Try out some fun filters!</h2>
-      </div>
-    </div>
+
     <div class="row mb-3">
       <form #filters="ngForm" class="form" (ngSubmit) = "applyFilters(filters.value)">
         <div class="col gx-3 p-0 mb-4" style="border: 1px solid transparent; border-image: url('https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png'); 
@@ -85,10 +81,10 @@
     <div class="row">
       <div class="col-4 col-md-3 col-lg-2" *ngFor="let npc of npcs">
         <button style="display: contents;" [routerLink]="['/villager-detail', npc.name]">
-          <div class="card my-2 p-3">
+          <div class="card text-center my-2 p-3">
             <img class="card-img-top" [src]="npc.img" alt="{{npc.name}} Image">
             <div class="card-body">
-              <h2 class="card-title text-center">{{npc.name}}</h2>
+              <h2 class="card-title">{{npc.name}}</h2>
             </div>
           </div>
         </button>
