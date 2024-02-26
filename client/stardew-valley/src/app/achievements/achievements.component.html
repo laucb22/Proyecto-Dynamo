@@ -1,26 +1,45 @@
 <div class="container">
     <div class="row">
-        <div class="col text-center mt-3">
+        <div class="col text-center mt-3 mb-4">
           <img src="../../assets/achievements.png">
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <form #filters="ngForm" (submit)="filterAchievements(filters.value)">
-                <label for="req">Does it have a prerequisite?</label>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" value="checked" [(ngModel)]="filters.value.needs_pre" name="needs_pre">
-                    <label class="form-check-label" for="req">Yes</label>
+
+    <div class="row mb-3">
+        <form #filters="ngForm" class="form" (ngSubmit) = "filterAchievements(filters.value)">
+            <div class="col gx-3 p-0 mb-4" style="border: 1px solid transparent; border-image: url('https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png'); 
+            border-image-slice: 20; 
+            border-image-width: 22; 
+            border-image-outset: 22; 
+            border-image-repeat: round;">
+            
+                <div class="row text-white pt-1">
+                    
+                    <div class="col-md">
+                        <div class="row">
+                            <label for="req" class="form-label">Does it have a prerequisite?:</label>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex">
+                                <div class="form-check">
+                                    <input type="radio" name="req" value="checked" data-icon=''  required [(ngModel)]="filters.value.needs_pre" name="needs_pre"/>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" name="req" value="unchecked" data-icon='' required [(ngModel)]="filters.value.needs_pre" name="needs_pre"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md">
+                        <button type="submit" class="btn btn-danger h-100 w-100">Filter</button>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" value="unchecked" [(ngModel)]="filters.value.needs_pre" name="needs_pre">
-                    <label class="form-check-label" for="req">No</label>
-                </div>
-                <button type="submit" class="btn btn-danger">Filter</button>
-            </form>
-            <button (click)="getAchievements()">Clear filters</button>
-        </div>
+            </div>
+        </form>
+        <button class="btn btn-primary" (click)="getAchievements()">Clear Filters</button>
     </div>
+
     <div class="row">
         <div class="col" id="table">
             <table class="table">
