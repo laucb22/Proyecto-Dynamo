@@ -142,7 +142,7 @@ def get_achievements():
                 if(int(achievement["prerequisite_achievement"]) == int(a["id"])):
                     achievement["prerequisite_achievement"] = a["name"]
             except:
-                print("not a parseable value")
+                print("Warning: Logro ya tiene uno asociado que existe en la tabla")
             
 
     return achievements
