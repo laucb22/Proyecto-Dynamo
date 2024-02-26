@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   randomNpc: any;
   names: string[] = [];
-
+  
   constructor(private api:ApiService){}
 
   ngOnInit(): void {
