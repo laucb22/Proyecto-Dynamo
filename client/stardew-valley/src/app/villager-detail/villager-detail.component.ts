@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-villager-detail',
@@ -76,6 +77,10 @@ export class VillagerDetailComponent implements OnInit {
       this.apiService.deleteNpc(name).subscribe(
         (response) => {
           console.log("Successful: " + response)
+          swal.fire({
+            text: "This villager has moved out!",
+            icon: "success"
+          });
           this.router.navigate(["/npcs"])
           
         },
@@ -99,10 +104,13 @@ export class VillagerDetailComponent implements OnInit {
       this.apiService.editNpc(data).subscribe(
         (response) => {
           console.log(response);
+          swal.fire({
+            text: "Changes submitted!",
+            icon: "success"
+          });
         }, (error) => {
           console.log(error)
         })
     }
-    
   }
 }

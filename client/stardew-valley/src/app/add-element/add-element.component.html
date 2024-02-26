@@ -171,8 +171,8 @@
         <div class="mb-3">
           <label for="img" class="form-label">Image URL:</label>
           <input #imgAValue type="url" [(ngModel)] ="achForm.value.img" (change)="imgAUploaded(imgAValue.value)" class="form-control">
-          <img height="100px" width="100px" *ngIf="imgAUrl && !wrongImgFormat" [src]="imgAUrl" alt="">
-          <div *ngIf="wrongImgFormat">
+          <img height="100px" width="100px" *ngIf="imgAUrl && !wrongAImgFormat" [src]="imgAUrl" alt="">
+          <div *ngIf="wrongAImgFormat">
             <p class="text-danger">Error: Wrong image format, please use png or jpg</p>
           </div>
         </div>
