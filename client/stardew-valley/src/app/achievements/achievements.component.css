@@ -133,10 +133,4 @@ input {
             color: rgba(255,255,255,.6);
         }
     }
-    &:disabled {
-        &:after {
-            box-shadow: none;
-            color: rgba(255,255,255,.6);
-        }
-    }
 }
