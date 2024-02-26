@@ -77,7 +77,7 @@
                           <span [hidden]="editing"> {{villager.love_interest | isNull}}</span>
                           <select [hidden]="!editing" class="form-select" id="love_interest" required [(ngModel)]="villager.love_interest" name="love_interest">
                             <option value="" disabled selected>Choose a lover</option>
-                            <option *ngFor="let name of names" value="name">{{name}}</option>
+                            <option *ngFor="let name of names" [value]="name">{{name}}</option>
                           </select>
                         </p>
                         <p class="card-text">Home region:
