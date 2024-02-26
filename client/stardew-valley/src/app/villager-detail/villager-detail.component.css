@@ -15,7 +15,7 @@
 h1{
     font-family: 'StardewValley';
 }
-p{
+p, text{
     font-family: 'StardewValley';
     font-size: x-large;
 }

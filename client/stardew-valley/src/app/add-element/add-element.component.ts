@@ -87,6 +87,10 @@ export class AddElementComponent implements OnInit{
             confirmButtonText: "Yes, go on!"
           }).then((result) =>{
             if (result.isConfirmed){
+              swal.fire({
+                text: "Element added successfully!",
+                icon: "success"
+              });
               this.api.insertElement(elementData).subscribe(
                 (response) => {
                   // Refrescamos la página

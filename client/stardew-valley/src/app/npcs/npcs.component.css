@@ -12,6 +12,15 @@
     transform: scale(1.06);
 }
 
+.card{
+    height: 16em;
+}
+
+.card-body{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+}
 h2{
     font-family: 'StardewValley';
 }
@@ -100,4 +109,12 @@ input{
             color: rgba(255,255,255,.6);
         }
     }
+
+    &:hover{ 
+        &:after {
+        box-shadow: 2px 2px 14px rgba(0,0,0,.4);
+        color: rgba(255,255,255,.6);
+        }
+    }
 }
+
