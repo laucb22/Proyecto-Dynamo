@@ -155,7 +155,7 @@
         </div>
         <div class="mb-3">
             <label for="display" class="form-label">Display before earned:</label>
-            <select class="form-select" id="display" required [(ngModel)]="defaultDisplay" name="display">
+            <select class="form-select" id="display_on_collections_tab_before_earned" required [(ngModel)]="defaultDisplay" name="display_on_collections_tab_before_earned">
                 <option value="" disabled selected>Display before earned?</option>
                 <option value="true">yes</option>
                 <option value="false">no</option>
@@ -170,8 +170,8 @@
         </div>
         <div class="mb-3">
           <label for="img" class="form-label">Image URL:</label>
-          <input #imgValue type="url" [(ngModel)] ="achForm.value.img" (change)="imgUploaded(imgValue.value)" class="form-control">
-          <img height="100px" width="100px" *ngIf="imgUrl && !wrongImgFormat" [src]="imgUrl" alt="">
+          <input #imgAValue type="url" [(ngModel)] ="achForm.value.img" (change)="imgAUploaded(imgAValue.value)" class="form-control">
+          <img height="100px" width="100px" *ngIf="imgAUrl && !wrongImgFormat" [src]="imgAUrl" alt="">
           <div *ngIf="wrongImgFormat">
             <p class="text-danger">Error: Wrong image format, please use png or jpg</p>
           </div>

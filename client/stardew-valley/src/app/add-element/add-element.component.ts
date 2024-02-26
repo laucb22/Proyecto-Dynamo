@@ -17,6 +17,7 @@ export class AddElementComponent implements OnInit{
   fileContent:string = "";
   fileName:string = "None";
   imgUrl: string = ""
+  imgAUrl: string = ""
   wrongImgFormat: boolean = false;
   defaultAge = "";
   defaultManners = "";
@@ -154,7 +155,7 @@ export class AddElementComponent implements OnInit{
       data.img = this.imgUrl
     } else{
       data.hat_earned = 0
-      data.img = " "
+      data.img = this.imgAUrl
     }
     console.log(data)
     if(confirm("Are you sure you want to add this item?")){
@@ -170,13 +171,24 @@ export class AddElementComponent implements OnInit{
 
 
   imgUploaded(url: any){
-    let extension = url.split(".")[url.split(".").length - 1];
+    let extension = url.split(".")[url.split(".").length - 1].trim();
     console.log(extension)
     if(extension != "png" && extension != "jpg"){
       this.wrongImgFormat = true;
       return;
     }
     this.imgUrl = url
+    this.wrongImgFormat = false;
+  }
+
+  imgAUploaded(url: any){
+    let extension = url.split(".")[url.split(".").length - 1].trim();
+    console.log(extension)
+    if(extension != "png" && extension != "jpg"){
+      this.wrongImgFormat = true;
+      return;
+    }
+    this.imgAUrl = url
     this.wrongImgFormat = false;
   }
 
