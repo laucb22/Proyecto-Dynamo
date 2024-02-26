@@ -20,8 +20,6 @@ export class HomeComponent implements OnInit {
         this.names = data
       }))
     }));
-
-    
   }
 
   checkName(name: any){
