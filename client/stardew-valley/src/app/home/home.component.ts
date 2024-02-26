@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   randomNpc: any;
   names: string[] = [];
-  
+
   constructor(private api:ApiService){}
 
   ngOnInit(): void {
@@ -19,11 +19,8 @@ export class HomeComponent implements OnInit {
       this.api.getNpcOptions(this.randomNpc.name).subscribe(((data: any[]) => {
         this.names = data
       }))
-    }));
-
-    
+    }));    
   }
-
 
   commence(){
     console.log(this.names)
@@ -44,5 +41,4 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  
 }
