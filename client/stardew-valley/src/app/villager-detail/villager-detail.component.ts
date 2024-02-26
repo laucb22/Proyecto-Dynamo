@@ -40,29 +40,29 @@ export class VillagerDetailComponent implements OnInit {
         this.day = this.villager.birthday.split(" ")[1];
         console.log(this.month);
         if(this.month == "spring"){
-          this.monthImg = "https://stardewvalleywiki.com/mediawiki/images/thumb/9/9c/Spring.png/24px-Spring.png";
+          this.monthImg = "./../../assets/spring-flower.png";
         } else if(this.month == "summer"){
-          this.monthImg = "https://stardewvalleywiki.com/mediawiki/images/thumb/8/85/Summer.png/24px-Summer.png";
+          this.monthImg = "./../../assets/ice-cream.png";
         } else if(this.month == "fall"){
-          this.monthImg = "https://stardewvalleywiki.com/mediawiki/images/thumb/5/5d/Fall.png/24px-Fall.png";
+          this.monthImg = "./../../assets/fall-leaf.png";
         } else if(this.month == "winter"){
-          this.monthImg = "https://stardewvalleywiki.com/mediawiki/images/thumb/a/a7/Winter.png/24px-Winter.png";
+          this.monthImg = "./../../assets/christmas-tree.png";
         }
         // comprobar gender
         if(this.villager.gender == "female"){
-          this.genderImg = "";
+          this.genderImg = "./../../assets/female.png";
         } else if(this.villager.gender == "male"){
-          this.genderImg = "";
+          this.genderImg = "./../../assets/male.png";
         } else if(this.villager.gender == "undefined"){
-          this.genderImg = "";
+          this.genderImg = "./../../assets/undefined.png";
         }
         // comprobar optimism
         if(this.villager.optimism == "positive"){
-          this.optimismImg = "https://stardewcommunitywiki.com/mediawiki/images/1/14/Emote_Happy.png";
+          this.optimismImg = "https://stardewcommunitywiki.com/mediawiki/images/d/d1/Emojis001.png";
         } else if(this.villager.optimism == "negative"){
-          this.optimismImg = "https://stardewcommunitywiki.com/mediawiki/images/1/18/Emote_Angry.png";
+          this.optimismImg = "https://stardewcommunitywiki.com/mediawiki/images/b/b2/Emojis014.png";
         } else if(this.villager.optimism == "neutral"){
-          this.optimismImg = "https://stardewcommunitywiki.com/mediawiki/images/0/05/Emote_Uh.gif";
+          this.optimismImg = "https://stardewcommunitywiki.com/mediawiki/images/8/8a/Emojis011.png";
         }
         console.log(this.villager);
       },

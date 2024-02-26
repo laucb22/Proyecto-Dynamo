@@ -53,8 +53,8 @@
                           </select> 
                         </p>
                         <p class="card-text">Optimism:
-                          <span [hidden]="editing"> <img [src]="optimismImg" class="img-fluid rounded-start" alt="{{villager.optimism}}"></span>
-                          <select [hidden]="!editing" class="form-select" id="optimism" required [(ngModel)]="villager.optimism" name="optimism">
+                          <span [hidden]="editing"> <img [src]="optimismImg" class="img-fluid rounded-start" alt="{{villager.optimism}}" style="width:10%"></span>
+                          <select [hidden]="!editing" class="form-select" id="optimism" required [(ngModel)]="villager.optimism" name="optimism" >
                             <option value="" disabled selected>What's their mindset?</option>
                             <option value="positive">positive</option>
                             <option value="neutral">neutral</option>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col details">
                         <p class="card-text">Gender:
-                          <span [hidden]="editing"> {{villager.gender}}</span>
+                          <span [hidden]="editing"> <img [src]="genderImg" class="img-fluid rounded-start" alt="{{villager.gender}}" style="width:7%"></span>
                           <select [hidden]="!editing" class="form-select" id="gender" required [(ngModel)]="villager.gender" name="gender">
                             <option value="" disabled selected>Select a gender</option>
                             <option value="male">male</option>
@@ -85,7 +85,7 @@
                           <input [hidden]="!editing" type="text" maxlength="20" class="form-control" name="home_region" [(ngModel)]="villager.home_region" required>
                         </p>
                         <p class="card-text">Birthday:
-                          <span [hidden]="editing"> <img [src]="monthImg" class="img-fluid rounded-start h-100" alt="{{month}}">
+                          <span [hidden]="editing"> <img [src]="monthImg" class="img-fluid rounded-start" alt="{{month}}" style="width:10%">
                             {{day | isNull}}</span>
                             <select [hidden]="!editing" class="form-select" id="month" required [(ngModel)]="month" name="month">
                               <option value="" disabled selected>When were they born?</option>
