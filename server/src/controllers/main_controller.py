@@ -198,3 +198,22 @@ def get_filtered_achievements(req):
         elif req["needs_pre"] == "unchecked" and achievement["prerequisite_achievement"] == -1:
             filtered_achievements.append(achievement)
     return filtered_achievements
+
+def get_npc_options(name):
+    options = []
+    print(name)
+
+    npc_names = get_npc_names()
+
+    while len(options) < 5:
+        name_to_append = random.choice(npc_names)
+        if name_to_append not in options:
+            options.append(name_to_append)
+
+    if name["name"] not in options:
+        options[random.randint(0, len(options) - 1)] = name["name"]
+    print(options)
+    return options
+    
+
+    

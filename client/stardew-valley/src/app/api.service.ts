@@ -53,4 +53,8 @@ export class ApiService {
     return this.http.post<any[]>("http://localhost:5000/getFilteredAchievements", data)
   }
 
+  getNpcOptions(name: any): Observable<any[]>{
+    return this.http.post<any[]>("http://localhost:5000/getNpcChoices", {name: name})
+  }
+
 }
