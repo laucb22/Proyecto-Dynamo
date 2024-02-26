@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
 import { flush } from '@angular/core/testing';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-element',
@@ -19,6 +20,7 @@ export class AddElementComponent implements OnInit{
   imgUrl: string = ""
   imgAUrl: string = ""
   wrongImgFormat: boolean = false;
+  wrongAImgFormat: boolean = false;
   defaultAge = "";
   defaultManners = "";
   defaultPersonality = "";
@@ -47,8 +49,6 @@ export class AddElementComponent implements OnInit{
     if(window.confirm('Are sure you want to add this element?')){
       this.api.insertElement(value).subscribe(
         (response) => {
-          // Mostramos el pop up
-          this.showSuccess();
           // Refrescamos la página
           setTimeout(() => {
             window.location.reload();
@@ -76,8 +76,6 @@ export class AddElementComponent implements OnInit{
           if(window.confirm('Are sure you want to add this element(s)?')){
             this.api.insertElement(elementData).subscribe(
               (response) => {
-                // Llamamos al pop up
-                this.showSuccess();
                 // Refrescamos la página
                 setTimeout(() => {
                   window.location.reload();
@@ -133,14 +131,28 @@ export class AddElementComponent implements OnInit{
   }
 
   checkAttributes(content: any): boolean{
-    if(!content.type) return false;
+    if(!content.type){
+      swal.fire({
+        text: "This is not a valid JSON file!",
+        icon: "error"
+      });
+      return false;
+    } 
 
     if(content.type == "npc" && (!content.name || !content.age || !content.manners || !content.social_anxiety ||
         !content.optimism || !content.gender || !content.datable || !content.love_interest || !content.home_region ||
         !content.birthday || !content.relationships || !content.start_location || !content.img)){
+          swal.fire({
+            text: "This is not a valid JSON file!",
+            icon: "error"
+          });
           return false
     }else if(content.type == "achievement" && ( !content.id || !content.name || !content.description || !content.display_on_collections_tab_before_earned
         || !content.prerequisite_achievement || !content.hat_earned || !content.img)){
+          swal.fire({
+            text: "This is not a valid JSON file!",
+            icon: "error"
+          });
           return false
     } else{
       return true
@@ -162,6 +174,10 @@ export class AddElementComponent implements OnInit{
       this.api.insertElement(data).subscribe(
         (response) => {
           console.log(response);
+          swal.fire({
+            text: "Element added successfully!",
+            icon: "success"
+          });
         }, (error) => {
           console.log(error)
         })
@@ -174,6 +190,10 @@ export class AddElementComponent implements OnInit{
     let extension = url.split(".")[url.split(".").length - 1].trim();
     console.log(extension)
     if(extension != "png" && extension != "jpg"){
+      swal.fire({
+        text: "The image URL must be png or jpg!",
+        icon: "error"
+      });
       this.wrongImgFormat = true;
       return;
     }
@@ -185,16 +205,14 @@ export class AddElementComponent implements OnInit{
     let extension = url.split(".")[url.split(".").length - 1].trim();
     console.log(extension)
     if(extension != "png" && extension != "jpg"){
-      this.wrongImgFormat = true;
+      swal.fire({
+        text: "The image URL must be png or jpg!",
+        icon: "error"
+      });
+      this.wrongAImgFormat = true;
       return;
     }
     this.imgAUrl = url
-    this.wrongImgFormat = false;
-  }
-
-
-  // Pop up para mostrar un mensaje al usuario informándole de que la acción se ha realizado.
-  showSuccess() {
-    this.toastr.success('Element(s) added!');
+    this.wrongAImgFormat = false;
   }
 }
