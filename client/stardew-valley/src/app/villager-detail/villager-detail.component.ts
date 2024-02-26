@@ -22,6 +22,7 @@ export class VillagerDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {}
 
+  //Se inicializan los datos del npc a actualizar al cargar la página.
   ngOnInit() {
     this.apiService.getNpcNames().subscribe((data: any[]) => {
       this.names = data
@@ -107,7 +108,6 @@ export class VillagerDetailComponent implements OnInit {
     data.relationships = " "
     data.start_location = "Town"
     data.birthday = data.month + " " + data.day
-    console.log(data)
     swal.fire({
       title: "Are you sure?",
       text: "You are going to update a villager's data!",

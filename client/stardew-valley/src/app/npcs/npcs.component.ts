@@ -16,10 +16,6 @@ export class NpcsComponent {
     this.getNpcs()
   }
 
-  refresh(){
-    window.location.reload();
-  }
-
   applyFilters(filters: any){
     if(filters.gender == ""){
       delete(filters.gender)

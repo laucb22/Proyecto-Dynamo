@@ -43,32 +43,6 @@ export class AddElementComponent implements OnInit{
       })
   }
 
-  // Llama a la función para añadir elementos y le manda los campos del formulario.
-  onSubmit(value: any){
-    // Pedimos confirmación al usuario
-    if(window.confirm('Are sure you want to add this element?')){
-      this.api.insertElement(value).subscribe(
-        (response) => {
-          swal.fire({
-            text: "Element added successfully!",
-            icon: "success"
-          });
-          // Refrescamos la página
-          setTimeout(() => {
-            window.location.reload();
-          }, 1000);
-          console.log('API Response:', response);
-        },
-        (error) => {
-          console.error('API Error:', error);
-          
-        }
-      );
-    } else{
-      console.log(value)
-    }
-  }
-
   // Llama a la función para añadir elementos y le manda el JSON.
   onSubmitFile(){
     if(this.fileContent){
@@ -169,6 +143,8 @@ export class AddElementComponent implements OnInit{
     
   }
 
+  //Función de blindaje de los archivos JSON subidos a la aplicación. Dependiendo del tipo de objeto, valida todos y cada uno
+  // de sus atributos. Si encuentra cualquier incongruencia, devuelve un error al usuario.
   checkAttributes(content: any): boolean{
     if(!content.type){
       swal.fire({
@@ -197,6 +173,7 @@ export class AddElementComponent implements OnInit{
       return true
     }
   }
+
   submitElement(data: any, isNpc: boolean){
     data.type = isNpc ? "npc" : "achievement";
     if(data.type == "npc"){
@@ -218,10 +195,12 @@ export class AddElementComponent implements OnInit{
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes!"
     }).then((result) =>{
-      swal.fire({
-        text: "Element added successfully!",
-        icon: "success"
-      });
+      if(result.isConfirmed){
+        swal.fire({
+          text: "Element added successfully!",
+          icon: "success"
+        });
+      }
       this.api.insertElement(data).subscribe(
         (response) => {
           console.log(response);
@@ -232,6 +211,7 @@ export class AddElementComponent implements OnInit{
   }
 
 
+  //Cambio en la imagen de NPC
   imgUploaded(url: any){
     let extension = url.split(".")[url.split(".").length - 1].trim();
     console.log(extension)
@@ -247,6 +227,7 @@ export class AddElementComponent implements OnInit{
     this.wrongImgFormat = false;
   }
 
+  //Cambio en la imagen de logro
   imgAUploaded(url: any){
     let extension = url.split(".")[url.split(".").length - 1].trim();
     console.log(extension)

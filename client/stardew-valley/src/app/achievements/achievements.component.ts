@@ -16,10 +16,6 @@ export class AchievementsComponent {
     this.getAchievements()
   }
 
-  refresh(){
-    window.location.reload();
-  }
-
   filterAchievements(data: any){
     this.api.getFilteredAchievements(data).subscribe((data: any[]) => {
       this.achievements = data
