@@ -108,10 +108,18 @@ export class AddElementComponent implements OnInit{
 
         } else {
           console.error('Not valid JSON file.');
+          swal.fire({
+            text: "Not valid JSON file!",
+            icon: "error"
+          });
         }
       } catch (error) {
         console.error('Couldn\'t analyze the JSON file: ', error);
         console.error('Not valid JSON file.');
+        swal.fire({
+          text: "Not valid JSON file!",
+          icon: "error"
+        });
       }
     }
   }
@@ -121,6 +129,10 @@ export class AddElementComponent implements OnInit{
     const file = event.target.files[0];
     this.fileName = file.name;
     if(file.name.split(".")[1] != "json"){
+      swal.fire({
+        text: "Wrong format!",
+        icon: "error"
+      });
       this.wrongFormat = true;
       this.isNotComplete = false;
       return;
@@ -134,12 +146,20 @@ export class AddElementComponent implements OnInit{
       if(Array.isArray(this.fileContent)){
         for(let i = 0; i < this.fileContent.length; i++){
           if(!this.checkAttributes(this.fileContent[i])){
+            swal.fire({
+              text: "This JSON file is incomplete!",
+              icon: "error"
+            });
             this.isNotComplete = true
             return;
           }
         }
       } else{
         if(!this.checkAttributes(this.fileContent)){
+          swal.fire({
+            text: "This JSON file is incomplete!",
+            icon: "error"
+          });
           this.isNotComplete = true
           return;
         }

@@ -125,6 +125,7 @@ export class VillagerDetailComponent implements OnInit {
               text: "Changes submitted!",
               icon: "success"
             });
+            this.editing = false;
           }, (error) => {
             console.log(error)
           })

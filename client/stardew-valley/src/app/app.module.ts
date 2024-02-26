@@ -10,9 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NpcsComponent } from './npcs/npcs.component';
-import { EditNpcComponent } from './edit-npc/edit-npc.component';
 import { AchievementsComponent } from './achievements/achievements.component';
-import { EditAchievementComponent } from './edit-achievement/edit-achievement.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddElementComponent } from './add-element/add-element.component';
@@ -27,9 +25,7 @@ import { MyIsNullPipe } from './custom.isnullpipe';
     AppComponent,
     HomeComponent,
     NpcsComponent,
-    EditNpcComponent,
     AchievementsComponent,
-    EditAchievementComponent,
     NavbarComponent,
     FooterComponent,
     AddElementComponent,

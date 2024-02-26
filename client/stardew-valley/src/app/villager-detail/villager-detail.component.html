@@ -77,7 +77,7 @@
                           <span [hidden]="editing"> {{villager.love_interest | isNull}}</span>
                           <select [hidden]="!editing" class="form-select" id="love_interest" required [(ngModel)]="villager.love_interest" name="love_interest">
                             <option value="" disabled selected>Choose a lover</option>
-                            <option *ngFor="let name of names" value="name">{{name}}</option>
+                            <option *ngFor="let name of names" [value]="name">{{name}}</option>
                           </select>
                         </p>
                         <p class="card-text">Home region:
@@ -100,7 +100,7 @@
                   </div>
                   <div class="row align-items-center">
                     <div class="col">
-                      <div>
+                      <div class="m-3">
                         <button [hidden]="!editing" type="submit" class="btn">Save</button>
                       </div>
                     </div>
@@ -112,12 +112,12 @@
                   </div>
                 </form>
                 <div class="row justify-content-evenly">
-                  <div class="col d-flex">
+                  <div class="col d-flex justify-content-center">
                     <form class="p-4 rounded" [hidden]="editing">
                         <button type="submit" class="btn" (click)="editing = !editing">Edit</button>
                     </form>
                   </div>
-                  <div class="col d-flex">
+                  <div class="col d-flex justify-content-start">
                     <form class="p-4 rounded" [hidden]="editing">
                       <button type="submit" class="btn pt-2" (click)="deleteVillager(villager.name)">Delete</button>
                     </form>
