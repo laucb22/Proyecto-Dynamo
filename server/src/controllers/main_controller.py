@@ -1,12 +1,10 @@
 from  config.database import DB
 from boto3 import *
 from boto3.dynamodb.conditions import Key
-
-
 from boto3.dynamodb.conditions import Attr
-
-
 import random
+
+#Inicializamos la tabla en una variable para realizar operaciones con npcs (aldeanos) y achievements (logros)
 STARDEW = DB.Table("StardewValley")
 
 #
@@ -35,7 +33,7 @@ def add_element(data):
 
 #
 # Pre:---
-# Post: Método para obtener los únicamente nombres de los NPCs
+# Post: Método para obtener los únicamente nombres de los NPCs. Devuelve una lista de strings
 #
 def get_npc_names():
     
@@ -64,7 +62,10 @@ def get_npcs():
 
 #
 # Pre:---
-# Post 
+# Post: Función para el filtrado de aldeanos. Recoge un diccionario con los filtros como parámetro, analiza la cantidad de
+# condiciones a aplicar y realiza la sentencia correspondiente contra la base de datos. En caso de que los filtros estén vacíos
+# simplemente devuelve todos los aldeanos sin filtrar.
+# @params: filters
 #
 def get_filtered_npcs(filters: dict):
     keys = list(filters.keys())
@@ -89,6 +90,12 @@ def get_filtered_npcs(filters: dict):
         return get_npcs()
     return npcs
 
+#
+# Pre:---
+# Post: Método encargado del borrado de un npc. Recibe como parámetro su nombre, lo busca aplicando la condición de 
+# clave npc y lo borra.
+# @params: name_npc
+#
 def delete_npc(name_npc):
 
     response = STARDEW.delete_item(
@@ -100,6 +107,12 @@ def delete_npc(name_npc):
 
     return response
 
+#
+# Pre:---
+# Post: Método encargado del borrado de logros. Recibe el nombre por parámetro, lo busca en la base de datos con clave tipo
+# achievement y lo borra.
+# @params: name_achievement
+#
 def delete_achievement(name_achievement):
 
     response = STARDEW.delete_item(
@@ -111,6 +124,12 @@ def delete_achievement(name_achievement):
     
     return response
 
+#
+# Pre:---
+# Post: Función para la obtención de los logros. Realiza una búsqueda por clave tipo: achievement y lo guarda en una variable.
+# Como los logros tienen un atributo para guardar un la ID de un logro de prerequisito si lo poseen; la función reemplaza dicha
+# ID por el nombre del logro al que corresponde. Una vez finalizado el reemplazo, devuelve los logros.
+#
 def get_achievements():
     response = STARDEW.query(
         KeyConditionExpression=Key("type").eq("achievement")
@@ -128,6 +147,12 @@ def get_achievements():
 
     return achievements
 
+#
+# Pre:---
+# Post: Método para actualizar un npc. Recibe datos con todos los atributos del aldeano incluyendo los cambios a realizar. Una
+# vez encuentra el registro a actualizar, aplica los cambios a cada atributo y devuelve el registro actualizado.
+# @params: data
+#
 def update_npc(data):
  
     response = STARDEW.update_item(
@@ -151,7 +176,13 @@ def update_npc(data):
     )
     return response
 
-
+#
+# Pre:---
+# Post: Método para actualizar un logro. Recibe datos con todos los atributos del logro incluyendo los cambios a realizar. Una
+# vez encuentra el registro a actualizar por su tipo y nombre, aplica los cambios a cada atributo y devuelve
+# el registro actualizado.
+# @params: data 
+#
 def update_archievement(data):
 
     response = STARDEW.update_item(
@@ -172,6 +203,11 @@ def update_archievement(data):
     )
     return response
 
+#
+# Pre:---
+# Post: Método para la obtención de un npc aleatorio. Se obtiene la lista de npcs y usando la libreria Random se escoge
+# y se devuelve uno aleatorio
+#
 def get_random_npc():
     
     npcs = STARDEW.query(
@@ -182,8 +218,13 @@ def get_random_npc():
 
     return chosen_npc
 
+#
+# Pre:---
+# Post: Función para obtener un npc según su nombre. Simplemente se llama a una sentencia get individual con el nombre como
+# condición.
+# @param: name
+#
 def get_specific_npc(name):
-    print(name)
     npc = STARDEW.get_item(
         Key={
             "type": "npc",
@@ -193,6 +234,11 @@ def get_specific_npc(name):
 
     return npc["Item"]
 
+#
+# Pre:---
+# Post: Método para obtener la siguiente ID a procesar de los logros. Obtiene la lista y la recorre analizando las ids para
+# devolver el un número mayor por uno al valor máximo.
+#
 def get_new_achievement_id():
     achievements = get_achievements()
 
@@ -203,6 +249,11 @@ def get_new_achievement_id():
     
     return maxId + 1
 
+#
+# Pre:---
+# Post: Método para filtrar logros según la existencia de un prerequisito. Recibe la orden de filtrar por logros que posean
+# dicho requisito o no. Devuelve finalmente una lista filtrada.
+#
 def get_filtered_achievements(req):
     
     filtered_achievements = []
@@ -214,9 +265,14 @@ def get_filtered_achievements(req):
             filtered_achievements.append(achievement)
     return filtered_achievements
 
+#
+# Pre:---
+# Post: Método para obtener 5 nombres entre los que se encuentra el nombre pasado por parámetro. Devuelve una lista con cuatro
+# nombres aleatorios y el escogido por el usuario.
+# @params: name
+#
 def get_npc_options(name):
     options = []
-    print(name)
 
     npc_names = get_npc_names()
 
@@ -227,7 +283,7 @@ def get_npc_options(name):
 
     if name["name"] not in options:
         options[random.randint(0, len(options) - 1)] = name["name"]
-    print(options)
+
     return options
     
 

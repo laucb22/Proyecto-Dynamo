@@ -2,7 +2,10 @@ from flask import *
 from flask_cors import CORS
 from controllers import main_controller as mc
 from flask import request
+
+#Se inicia la aplicación
 app = Flask(__name__)
+
 
 CORS(app)
 
