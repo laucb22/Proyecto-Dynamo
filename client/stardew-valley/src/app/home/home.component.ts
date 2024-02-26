@@ -39,6 +39,11 @@ export class HomeComponent implements OnInit {
           repeat
         `
       });
+    } else{
+      swal.fire({
+        title: "Nope! It's not " + name,
+        icon: "error"
+      });
     }
   }
 
