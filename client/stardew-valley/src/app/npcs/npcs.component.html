@@ -9,65 +9,76 @@
         <h2>Try out some fun filters!</h2>
       </div>
     </div>
-    <div class="row mb-3" >
+    <div class="row mb-3">
       <form #filters="ngForm" class="form" (ngSubmit) = "applyFilters(filters.value)">
-        <div class="row gx-0 p-0" style="border: 1px solid transparent;border-image: url('https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png');
-        border-image-slice: 20;
-        border-image-width: 22;
-        border-image-outset: 10;
+        <div class="col gx-3 p-0 mb-4" style="border: 1px solid transparent; border-image: url('https://stardewvalleywiki.com/mediawiki/extensions/StardewValley/images/menu_border.png'); 
+        border-image-slice: 20; 
+        border-image-width: 22; 
+        border-image-outset: 22; 
         border-image-repeat: round;">
-          
-            <div class="row">
-              <div class="col d-flex">
+        
+          <div class="row text-white pt-1">
+            
+            <div class="col-md">
+              <div class="row">
                 <label for="gender" class="form-label">Gender:</label>
               </div>
-              <div class="col">
+              <div class="row">
+                <div class="col d-flex">
+                  <div class="form-check">
+                    <input type="radio" name="gender" value="male" data-icon='' required [(ngModel)]="filters.value.gender"/>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="gender" value="female" data-icon='' required [(ngModel)]="filters.value.gender"/>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="gender" value="undefined" data-icon='?' required [(ngModel)]="filters.value.gender"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md">
+              <div class="row">
                 <label for="manners" class="form-label">Manners:</label>
               </div>
-              <div class="col">
+              <div class="row">
+                <div class="col d-flex">
+                  <div class="form-check">
+                    <input type="radio" name="manners" value="rude" data-icon='' required [(ngModel)]="filters.value.manners"/>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="manners" value="neutral" data-icon='' required [(ngModel)]="filters.value.manners"/>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="manners" value="polite" data-icon='' required [(ngModel)]="filters.value.manners"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md">
+              <div class="row">
                 <label for="datable" class="form-label">Dateable:</label>
               </div>
+              <div class="row">
+                <div class="col d-flex">
+                  <div class="form-check">
+                    <input type="radio" name="datable" value="datable" data-icon='' required [(ngModel)]="filters.value.datable"/>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="datable" value="not-datable" data-icon='' required [(ngModel)]="filters.value.datable"/>
+                  </div>
+                </div>
+              </div>
             </div>
-          
-          <div class="col d-flex">
-            
-            <div class="form-check">
-              <input type="radio" name="gender" value="male" data-icon=''required [(ngModel)]="filters.value.gender"/>
+        
+            <div class="col-md">
+              <button type="submit" class="btn btn-danger h-100 w-100">Filter</button>
             </div>
-            <div class="form-check">
-              <input type="radio" name="gender" value="female" data-icon='' required [(ngModel)]="filters.value.gender"/>
-            </div>
-            <div class="form-check">
-              <input type="radio" name="gender" value="undefined" data-icon='?' required [(ngModel)]="filters.value.gender"/>
-            </div>
-          </div>
-          <div class="col d-flex">
-            
-              <div class="form-check">
-                <input type="radio" name="manners" value="rude" data-icon='' required [(ngModel)]="filters.value.manners"/>
-              </div>
-              <div class="form-check">
-                <input type="radio" name="manners" value="neutral" data-icon='' required [(ngModel)]="filters.value.manners"/>
-              </div>
-              <div class="form-check">
-                <input type="radio" name="manners" value="polite" data-icon='' required [(ngModel)]="filters.value.manners"/>
-              </div>
-          </div>
-          <div class="col d-flex">
-            
-              <div class="form-check">
-                <input type="radio" name="datable" value="datable" data-icon='' required [(ngModel)]="filters.value.datable"/>
-              </div>
-              <div class="form-check">
-                <input type="radio" name="datable" value="not-datable" data-icon='' required [(ngModel)]="filters.value.datable"/>
-              </div>
-          </div>
-          
-          <div class="col">
-            <button type="submit" class="btn btn-danger h-100 w-100">Filter</button>
-            
           </div>
         </div>
+        
       </form>
       <button class="btn btn-primary" (click)="getNpcs()">Clear Filters</button>
     </div>
