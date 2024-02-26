@@ -146,12 +146,12 @@ export class AddElementComponent implements OnInit{
     }
   }
   submitElement(data: any, isNpc: boolean){
-    console.log(data)
     data.type = isNpc ? "npc" : "achievement";
     if(data.type == "npc"){
       data.relationships = " "
       data.start_location = "Town"
       data.birthday = data.month + " " + data.day
+      data.img = this.imgUrl
     } else{
       data.hat_earned = 0
       data.img = " "
