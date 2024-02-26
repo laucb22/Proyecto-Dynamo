@@ -74,7 +74,7 @@ export class AddElementComponent implements OnInit{
     if(this.fileContent){
       try {
         // Parseamos el contenido del archivo para que se envíe correctamente
-        const elementData = JSON.parse(this.fileContent);
+        const elementData = this.fileContent;
         if(elementData){
           // Pedimos confirmación al usuario
           swal.fire({
@@ -87,6 +87,10 @@ export class AddElementComponent implements OnInit{
             confirmButtonText: "Yes, go on!"
           }).then((result) =>{
             if (result.isConfirmed){
+              swal.fire({
+                text: "Element added successfully!",
+                icon: "success"
+              });
               this.api.insertElement(elementData).subscribe(
                 (response) => {
                   // Refrescamos la página
