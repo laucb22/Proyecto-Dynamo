@@ -12,10 +12,10 @@
                 <div class="card-body">
                   <h2 class="card-title text-center">Who is this?</h2>
                 </div>
-              </div>
+            </div>
         </div>
         <div class="col-6">
-              <button class="btn btn-danger" *ngFor="let choice of choices">{{choice}}</button>
+              <button class="btn btn-danger" (click)="checkName(name)" *ngFor="let name of names">{{name}}</button>
         </div>
     </div>
     <button (click)="commence()">AAA</button>

@@ -60,3 +60,8 @@ def get_specific_npc(name):
 def get_filtered_achievements():
     req = request.json
     return mc.get_filtered_achievements(req)
+
+@app.route("/getNpcChoices", methods=["POST"])
+def get_npc_choices():
+    name = request.json
+    return mc.get_npc_options(name)
