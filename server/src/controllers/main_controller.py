@@ -15,16 +15,17 @@ STARDEW = DB.Table("StardewValley")
 #
 def add_element(data):
 
-    if data["type"] == "achievement":
-        data["id"] = get_new_achievement_id()
-
     if(isinstance(data, list)):
         for element in data:
+            if element["type"] == "achievement":
+                element["id"] = get_new_achievement_id()
             STARDEW.put_item(
                 Item = element
             )
         return "Items added"
     else:
+        if data["type"] == "achievement":
+            data["id"] = get_new_achievement_id()
         STARDEW.put_item(
             Item=data
         )
